@@ -7,5 +7,7 @@ import com.cdac.LearningPie.entity.User;
 
 @Repository
 public interface UserDao extends JpaRepository<User, Integer>  {
+
+  public User findByUserNameAndPassword(String userName, String password);
 	
 }
