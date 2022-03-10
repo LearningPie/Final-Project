@@ -1,5 +1,7 @@
 package com.cdac.LearningPie.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,5 +22,8 @@ public class UserController {
 	  public void registerUser(@RequestBody User user) {
 		  userService.registerUser(user);
 	  }
-	  
+	  @PostMapping("/login")
+	  public User loginUser(@RequestBody User user) {
+			return userService.isExistingUser(user.getUserName(), user.getPassword()) ;	  
+	  }
 }

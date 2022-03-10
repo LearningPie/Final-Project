@@ -20,7 +20,7 @@ public class User {
 	private String email;
 	private String userName;
 	private String password;
-	private int phoneNo; 
+	private String phoneNo; 
 	private String securityQuestion;
 	private boolean status = false;
 	private String securityAnswer;
@@ -78,11 +78,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 
-	public void setPhoneNo(int phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 

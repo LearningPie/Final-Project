@@ -17,9 +17,10 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	@Override
-	public User isExistingUser(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public User isExistingUser(String userName, String password) {
+	   
+		return	userDao.findByUserNameAndPassword(userName,password);
+		 
 	}
 
 }
