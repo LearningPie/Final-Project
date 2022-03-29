@@ -31,7 +31,7 @@ function Frontpage() {
           </div>
         </div>
         <div>
-          <Carousel>
+          <Carousel interval={1000}>
             <Carousel.Item>
               <img
                 className="d-block w-100 h-100"

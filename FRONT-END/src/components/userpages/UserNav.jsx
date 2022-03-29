@@ -19,15 +19,6 @@ function Navbar() {
           >
             LEARNING-PIE
           </Link>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsenavbar"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
           <div className="ps-3 pe-5 text-center">
             <h5 className="text-white ">
               Welcome

@@ -69,8 +69,8 @@ export default function Login() {
           className="row  align-items-center justify-content-center "
           style={{ height: "100vh" }}
         >
-          <div className="col-12 col-md-6 bg-light  p-4">
-            <div className=" h2 alert alert-dark fw-bold text-center">
+          <div className="col-12 col-md-4 rounded shadow-lg bg-light bg-opacity-50 p-4">
+            <div className=" h3 alert alert-success fw-bold text-center">
               Login
             </div>
             <form onSubmit={handlerForm}>
@@ -100,26 +100,29 @@ export default function Login() {
               </div>
 
               <div class="col-md-12 mt-3 text-center">
-                <Link to="/forget" class="text-decoration-none  fs-5">
+                <Link
+                  to="/forget"
+                  class="text-decoration-none text-primary fs-5"
+                >
                   Forgot password?
                 </Link>
               </div>
-              <div>
-                <button
-                  type="submit"
-                  className="btn btn-lg btn-primary mt-3 w-100"
-                >
+              <div class="d-flex justify-content-center">
+                <button type="submit" className="btn btn-lg btn-primary mt-3 ">
                   Login
                 </button>
               </div>
 
               <div className="text-center mt-3">
-                <h4 className="fs-4">
+                <h6>
                   Not Registered??
-                  <Link to="/register" className="text-primary ">
-                    Register Here...
+                  <Link
+                    to="/register"
+                    className="text-primary text-decoration-none"
+                  >
+                    &nbsp; Register Here...
                   </Link>
-                </h4>
+                </h6>
               </div>
             </form>
           </div>

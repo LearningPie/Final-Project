@@ -1,25 +1,25 @@
-import { useState } from 'react'
-import { Button, Container, Modal, Nav, Navbar } from 'react-bootstrap'
+import { useState } from "react";
+import { Button, Container, Modal, Nav, Navbar } from "react-bootstrap";
 
 export default function Usernavbar() {
   return (
     <>
-      <div className='sticky-top'>
-        <Navbar bg='secondary' expand='lg'>
+      <div className="sticky-top">
+        <Navbar bg="secondary" expand="lg">
           <Container>
-            <Navbar.Brand id='textcolor' className='fw-bold' href='/'>
+            <Navbar.Brand id="textcolor" className="fw-bold" href="/">
               LEARNING PIE
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls='basic-navbar-nav' />
-            <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav className='ms-auto fw-bold align-items-center'>
-                <Nav.Link id='textcolor' classname='p-2' href='/'>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ms-auto fw-bold align-items-center">
+                <Nav.Link id="textcolor" classname="p-2" href="/">
                   HOME
                 </Nav.Link>
-                <Nav.Link id='textcolor' href='/Register'>
+                <Nav.Link id="textcolor" href="/Register">
                   REGISTER
                 </Nav.Link>
-                <Nav.Link id='textcolor' href='/Login'>
+                <Nav.Link id="textcolor" href="/Login">
                   LOGIN
                 </Nav.Link>
                 {/* <NavDropdown title='LOGIN' id='basic-nav-dropdown'>
@@ -31,7 +31,7 @@ export default function Usernavbar() {
                     ADMIN LOGIN
                   </NavDropdown.Item>
                 </NavDropdown> */}
-                <Nav.Link id='textcolor' href=''>
+                <Nav.Link id="textcolor" href="">
                   F&Q
                 </Nav.Link>
                 <Example />
@@ -41,16 +41,16 @@ export default function Usernavbar() {
         </Navbar>
       </div>
     </>
-  )
+  );
 }
 
 function Example() {
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
-      <Button id='textcolor' variant='secondary' onClick={handleShow}>
+      <Button id="textcolor" variant="secondary" onClick={handleShow}>
         ABOUT US
       </Button>
 
@@ -72,11 +72,11 @@ function Example() {
           </h5>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
       </Modal>
     </>
-  )
+  );
 }

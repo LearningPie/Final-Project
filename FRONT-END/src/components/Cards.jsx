@@ -6,7 +6,7 @@ export default function Cards(content) {
       <Card
         style={{
           width: "28rem",
-          background: "linear-gradient()",
+          background: "linear-gradient(to right, )",
         }}
         className="shadow p-3 mb-5 bg-white"
       >
