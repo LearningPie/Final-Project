@@ -66,7 +66,7 @@ function Register() {
   };
 
   //Check Email
-  const checkEmail = (data) => {
+  const checkUserName = (data) => {
     axios.post(`${base_url}/findbyusername`, data).then(
       (response) => {
         console.log(response);
@@ -205,7 +205,7 @@ function Register() {
       document.getElementById("tnc").classList.add("is-invalid");
       setEtnc("Please accept terms and conditions");
     } else {
-      checkEmail(user);
+      checkUserName(user);
     }
   };
 
@@ -217,7 +217,7 @@ function Register() {
           className="row justify-content-center align-items-center"
           style={{ height: "100vh" }}
         >
-          <div className="col-md-4">
+          <div className="col-md-5">
             <form
               className="row g-3 bg-secondary bg-opacity-50 mt-1 p-3"
               style={{ borderRadius: "8px" }}

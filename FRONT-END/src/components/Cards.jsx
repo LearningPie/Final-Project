@@ -6,18 +6,21 @@ export default function Cards(content) {
       <Card
         style={{
           width: "28rem",
-          background: "linear-gradient(to right, )",
+          borderRadius: "20px",
+          backgroundColor: `${content.color}`,
         }}
-        className="shadow p-3 mb-5 bg-white"
+        className="shadow p-3 mb-5  "
       >
         <Card.Body>
-          <Card.Title className="fs-2" style={{ textAlign: "center" }}>
-            {content.title}
-          </Card.Title>
+          <Card.Title className="fs-2 text-center">{content.title}</Card.Title>
 
-          <Card.Text>{content.Description}</Card.Text>
+          <Card.Text style={{ textAlign: "center" }}>
+            {content.Description}
+          </Card.Text>
           <div style={{ textAlign: "center" }}>
-            <button className="btn btn-primary">{content.link}</button>
+            <a className="btn btn-warning" href="/login">
+              {content.link}
+            </a>
           </div>
         </Card.Body>
       </Card>

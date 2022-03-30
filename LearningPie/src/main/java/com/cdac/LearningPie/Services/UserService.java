@@ -9,7 +9,7 @@ public interface UserService {
 	
         public void registerUser(User user);
         
-        public List<User> isExistingUser(String username,String password);
+        public User isExistingUser(String username,String password);
         
-        public List<User> findByUserName(String userName);
+        public User findByUserName(String userName);
 }

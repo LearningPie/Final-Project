@@ -12,13 +12,14 @@ function Navbar() {
   return (
     <div>
       <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top p-2">
-        <div class="container">
+        <div class="container ">
           <Link
             class="navbar-brand text-warning fs-3 font-weight-bold ps-5"
             to="/home"
           >
             LEARNING-PIE
           </Link>
+          <div>Hello</div>
           <div className="ps-3 pe-5 text-center">
             <h5 className="text-white ">
               Welcome

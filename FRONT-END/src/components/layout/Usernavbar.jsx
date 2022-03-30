@@ -6,23 +6,22 @@ export default function Usernavbar() {
     <>
       <div className="sticky-top">
         <Navbar bg="secondary" expand="lg">
-          <Container>
-            <Navbar.Brand id="textcolor" className="fw-bold" href="/">
-              LEARNING PIE
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="ms-auto fw-bold align-items-center">
-                <Nav.Link id="textcolor" classname="p-2" href="/">
-                  HOME
-                </Nav.Link>
-                <Nav.Link id="textcolor" href="/Register">
-                  REGISTER
-                </Nav.Link>
-                <Nav.Link id="textcolor" href="/Login">
-                  LOGIN
-                </Nav.Link>
-                {/* <NavDropdown title='LOGIN' id='basic-nav-dropdown'>
+          <Navbar.Brand id="textcolor" className="fw-bold" href="/">
+            LEARNING PIE
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto fw-bold align-items-center">
+              <Nav.Link id="textcolor" classname="p-2" href="/">
+                HOME
+              </Nav.Link>
+              <Nav.Link id="textcolor" href="/Register">
+                REGISTER
+              </Nav.Link>
+              <Nav.Link id="textcolor" href="/Login">
+                LOGIN
+              </Nav.Link>
+              {/* <NavDropdown title='LOGIN' id='basic-nav-dropdown'>
                   <NavDropdown.Item href='/Studentlogin'>
                     STUDENT LOGIN
                   </NavDropdown.Item>
@@ -31,13 +30,12 @@ export default function Usernavbar() {
                     ADMIN LOGIN
                   </NavDropdown.Item>
                 </NavDropdown> */}
-                <Nav.Link id="textcolor" href="">
-                  F&Q
-                </Nav.Link>
-                <Example />
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
+              <Nav.Link id="textcolor" href="">
+                F&Q
+              </Nav.Link>
+              <Example />
+            </Nav>
+          </Navbar.Collapse>
         </Navbar>
       </div>
     </>

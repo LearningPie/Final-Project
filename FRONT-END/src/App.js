@@ -5,6 +5,9 @@ import Login from "./components/Login";
 import AdminHome from "./components/layout/AdminHome";
 import Frontpage from "./components/Frontpage";
 import UserHome from "./components/userpages/UserHome";
+import FAQ from "./components/layout/FAQ";
+import Usernavbar from "./components/layout/Mainnavbar";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -13,14 +16,19 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route path="/" element={<Frontpage />} />
+        <Route path="/FAQ" element={<FAQ />} />
+        {/* <Route path="*" element={<ErrorPage />} /> */}
       </Routes>
 
-         {/* User routes */}
+      {/* User routes */}
       <Routes>
         <Route path="/user" element={<UserHome />} />
+        <Route path="/admin" element={<AdminHome />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="*" element={<Frontpage />} />
       </Routes>
 
-       {/* Admin routes */}
+      {/* Admin routes */}
       <Routes>
         <Route path="/admin" element={<AdminHome />} />
       </Routes>

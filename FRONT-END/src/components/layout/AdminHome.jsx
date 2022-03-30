@@ -4,12 +4,12 @@ import Footer from "./footer";
 import AdminNav from "./AdminNav";
 
 function AdminHome() {
-  useEffect(() => {
-    document.title = "Admin Home";
-    if (sessionStorage.getItem("admin") != "admin") {
-      window.location = "/";
-    }
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Admin Home";
+  //   if (sessionStorage.getItem("admin") != "admin") {
+  //     window.location = "/";
+  //   }
+  // }, []);
   return (
     <div>
       <AdminNav />
