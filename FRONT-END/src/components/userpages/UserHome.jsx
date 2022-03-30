@@ -3,14 +3,14 @@ import { Carousel } from "react-bootstrap";
 import UserNav from "./UserNav";
 
 function Frontpage() {
-  useEffect(() => {
-    document.title = "Home";
-    if (sessionStorage.getItem("userSession") == null) {
-      window.location = "/";
-    } else if (localStorage.getItem("user") == null) {
-      window.location = "/";
-    }
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Home";
+  //   if (sessionStorage.getItem("userSession") == null) {
+  //     window.location = "/";
+  //   } else if (localStorage.getItem("user") == null) {
+  //     window.location = "/";
+  //   }
+  // }, []);
   return (
     <div>
       <UserNav />

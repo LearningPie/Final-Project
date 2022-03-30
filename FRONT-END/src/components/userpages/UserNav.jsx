@@ -1,71 +1,58 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Button, Container, Modal, Nav, Navbar } from "react-bootstrap";
+import logo from "../Images/logo.png";
+import { useNavigate } from "react-router-dom";
 
-function Navbar() {
+export default function Usernavbar() {
   const name = sessionStorage.getItem("username");
+  let navigate = useNavigate();
   const endSession = () => {
     sessionStorage.removeItem("userSession");
     sessionStorage.removeItem("userdata");
     sessionStorage.removeItem("username");
     localStorage.removeItem("user");
+    navigate("/");
   };
+
   return (
-    <div>
-      <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top p-2">
-        <div class="container ">
-          <Link
-            class="navbar-brand text-warning fs-3 font-weight-bold ps-5"
-            to="/home"
-          >
-            LEARNING-PIE
-          </Link>
-          <div>Hello</div>
+    <>
+      <div className="sticky-top">
+        <Navbar bg="secondary" expand="lg">
+          <Navbar.Brand id="textcolor" className="fw-bold" href="/">
+            <img src={logo} height="44vh" className="mx-4" />
+          </Navbar.Brand>
           <div className="ps-3 pe-5 text-center">
             <h5 className="text-white ">
-              Welcome
-              <br />
+              Welcome &nbsp;
               <span>{name}</span>
             </h5>
           </div>
-          <div class="collapse navbar-collapse text-center" id="collapsenavbar">
-            <ul class="navbar-nav ml-auto ">
-              <li class="nav-item  ms-4 mt-2 fs-5">
-                <Link to="#" className="nav-link text-white ">
-                  Post Questions
-                </Link>
-              </li>
-
-              <li class="nav-item ms-4 mt-2 fs-5">
-                <Link to="#" class="nav-link text-white">
-                  View Questions
-                </Link>
-              </li>
-
-              <li class="nav-item  ms-4 mt-2 fs-5">
-                <Link to="#" class="nav-link text-white">
-                  Post Answers
-                </Link>
-              </li>
-
-              <li class="nav-item  ms-4 mt-2 fs-5">
-                <Link to="#" class="nav-link text-white">
-                  PROFILE
-                </Link>
-              </li>
-
-              <li class="nav-item  nav-logout mt-3 ">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto fw-bold align-items-center">
+              <Nav.Link classname="p-2" href="/postquestions">
+                Post Questions
+              </Nav.Link>
+              <Nav.Link id="textcolor" href="/viewquestions">
+                View Questions
+              </Nav.Link>
+              <Nav.Link id="textcolor" href="/postquestion">
+                Post Answers
+              </Nav.Link>
+              <Nav.Link id="textcolor" href="">
+                PROFILE
+              </Nav.Link>
+              <Nav.Link id="textcolor" href="">
                 <form onSubmit={endSession} action="/">
-                  <button type="submit" class="btn btn-sm btn-primary">
+                  <button type="submit" class="btn btn-sm btn-danger">
                     <span className="fs-6 ">LOGOUT</span>
                   </button>
                 </form>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+    </>
   );
 }
-
-export default Navbar;

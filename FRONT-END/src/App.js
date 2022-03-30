@@ -6,7 +6,7 @@ import AdminHome from "./components/layout/AdminHome";
 import Frontpage from "./components/Frontpage";
 import UserHome from "./components/userpages/UserHome";
 import FAQ from "./components/layout/FAQ";
-import Usernavbar from "./components/layout/Mainnavbar";
+import AskQuestion from "./components/userpages/AskQuestion";
 import Home from "./components/Home";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         <Route path="/user" element={<UserHome />} />
         <Route path="/admin" element={<AdminHome />} />
         <Route path="/home" element={<Home />} />
-        <Route path="*" element={<Frontpage />} />
+        <Route path="/AskQuestion" element={<AskQuestion />} />
       </Routes>
 
       {/* Admin routes */}
