@@ -31,7 +31,7 @@ public class Questions {
 	private User user;
 	
 	@OneToMany(mappedBy = "question")
-	@JsonIgnore
+	
 	private List<Answers> answerList;
 	
 	@ManyToOne

@@ -11,7 +11,9 @@ export default function Usernavbar() {
               id="textcolor"
               className="fw-bold text-warning"
               href="/"
-            ></Navbar.Brand>
+            >
+              <img src={logo} height="44vh" className="mx-4" />
+            </Navbar.Brand>
           </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

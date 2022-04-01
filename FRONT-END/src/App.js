@@ -3,11 +3,16 @@ import { Route, Routes } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import AdminHome from "./components/layout/AdminHome";
+import UserList from "./components/layout/UserList";
 import Frontpage from "./components/Frontpage";
 import UserHome from "./components/userpages/UserHome";
 import FAQ from "./components/layout/FAQ";
 import AskQuestion from "./components/userpages/AskQuestion";
+import PostQuestion from "./components/userpages/PostQuestion";
+import PostAnswer from "./components/userpages/PostAnswer";
+import UserProfile from "./components/userpages/UserProfile";
 import Home from "./components/Home";
+import UpdateProfile from "./components/userpages/UpdateProfile";
 
 function App() {
   return (
@@ -25,12 +30,17 @@ function App() {
         <Route path="/user" element={<UserHome />} />
         <Route path="/admin" element={<AdminHome />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/AskQuestion" element={<AskQuestion />} />
+        <Route path="/viewQuestion" element={<AskQuestion />} />
+        <Route path="/postQuestion" element={<PostQuestion />} />
+        <Route path="/userProfile" element={<UserProfile />} />
+        <Route path="/updateProfile" element={<UpdateProfile />} />
+        <Route path="/postAnswer" element={<PostAnswer />} />
       </Routes>
 
       {/* Admin routes */}
       <Routes>
         <Route path="/admin" element={<AdminHome />} />
+        <Route path="/userList" element={<UserList />} />
       </Routes>
     </>
   );

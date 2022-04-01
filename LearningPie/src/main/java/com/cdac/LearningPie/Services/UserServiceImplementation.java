@@ -15,6 +15,7 @@ public class UserServiceImplementation implements UserService {
     private UserDao userDao;
 	@Autowired
 	private EmailService emailService;
+	
 	@Override
 	public void registerUser(User user) {
 		userDao.save(user);	
@@ -25,7 +26,7 @@ public class UserServiceImplementation implements UserService {
 	public User isExistingUser(String userName, String password) {
 		User user=userDao.findByUserNameAndPassword(userName,password);
 		if(user==null) {
-			//throw new UserNotFoundException();
+			return null;
 		}
 		return user;
 	}
@@ -33,6 +34,27 @@ public class UserServiceImplementation implements UserService {
 	@Override
 	public User findByUserName(String userName){
 		return userDao.findByUserName(userName);	
+	}
+	
+	@Override
+	public int updateUser(String name, String email, String phoneNo, String password, String userName) {
+		return userDao.updateUser(name, email, phoneNo, password, userName);
+	}
+	
+	@Override
+	public List<User> getAllUsers() {
+		return this.userDao.findAll();
+	}
+	
+	@Override
+	public User getUser(String userName) {
+		return userDao.getUser(userName);
+	}
+	
+	@Override
+	public void deleteUser(int userId) {
+		User user= userDao.getById(userId);
+		userDao.delete(user);
 	}
 	
 }

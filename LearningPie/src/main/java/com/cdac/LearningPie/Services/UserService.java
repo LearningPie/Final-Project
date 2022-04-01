@@ -12,4 +12,12 @@ public interface UserService {
         public User isExistingUser(String username,String password);
         
         public User findByUserName(String userName);
+        
+        public int updateUser(String name, String email, String phoneNo, String password, String userName);
+        
+        public List<User> getAllUsers();
+        
+        public void deleteUser(int userId);
+        
+        public User getUser(String userName);
 }

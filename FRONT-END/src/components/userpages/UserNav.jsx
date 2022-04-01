@@ -33,7 +33,7 @@ export default function Usernavbar() {
               <Nav.Link classname="p-2" href="/postquestions">
                 Post Questions
               </Nav.Link>
-              <Nav.Link id="textcolor" href="/viewquestions">
+              <Nav.Link id="textcolor" href="/viewQuestion">
                 View Questions
               </Nav.Link>
               <Nav.Link id="textcolor" href="/postquestion">

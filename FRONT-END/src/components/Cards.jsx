@@ -5,14 +5,13 @@ export default function Cards(content) {
     <div>
       <Card
         style={{
-          width: "28rem",
           borderRadius: "20px",
           backgroundColor: `${content.color}`,
         }}
         className="shadow p-3 mb-5  "
       >
         <Card.Body>
-          <Card.Title className="fs-2 text-center">{content.title}</Card.Title>
+          <Card.Title className="fs-4 text-center">{content.title}</Card.Title>
 
           <Card.Text style={{ textAlign: "center" }}>
             {content.Description}

@@ -1,8 +1,14 @@
 package com.cdac.LearningPie.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +28,7 @@ public class UserController {
 	  }
 	  
 	  @PostMapping("/login")
-	  public User loginUser(@RequestBody UserDto user) {
+	  public User loginUser(@RequestBody User user) {
 			return userService.isExistingUser(user.getUserName(), user.getPassword()) ;	  
 	  }
 	  
@@ -31,5 +37,25 @@ public class UserController {
 		return userService.findByUserName(user.getUserName());
 	  }
 	  
+	  @PutMapping("/updateuser/{uname}")
+	  public int updateUser(@RequestBody User user, @PathVariable String uname) {
+		  return userService.updateUser(user.getName(), user.getEmail(), user.getPhoneNo(), user.getPassword(), uname);
+	  }
+	  
+	  @GetMapping("/getallusers")
+		public List<User> getAllUsers(User user){	
+			return userService.getAllUsers();	
+		}
+	  
+	   @PostMapping("/getuser/{uname}")
+	   public User getUser( @PathVariable String uname) {
+			return userService.getUser(uname);
+		}
+			  
+	  @DeleteMapping("deleteuser/{uid}")
+		public String deleteUser(@PathVariable int uid) {
+			userService.deleteUser(uid);
+			return "Deleted";
+		}
 	  
 }

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -21,6 +23,7 @@ public class Answers {
 	
 	@ManyToOne
 	@JoinColumn(name="question_id")
+	@JsonIgnore
 	private Questions question;
 	
 	@ManyToOne
