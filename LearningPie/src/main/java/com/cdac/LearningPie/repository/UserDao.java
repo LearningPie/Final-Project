@@ -2,6 +2,8 @@ package com.cdac.LearningPie.repository;
 
 
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,7 +17,7 @@ import com.cdac.LearningPie.entity.User;
 @Repository
 public interface UserDao extends JpaRepository<User, Integer>  {
 	
-	public User findByUserNameAndPassword(String userName, String password);
+	public List<User> findByUserNameAndPassword(String userName, String password);
 	
 	public User findByUserName(String userName);
 	

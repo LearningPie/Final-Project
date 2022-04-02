@@ -219,10 +219,10 @@ function Register() {
         >
           <div className="col-md-5">
             <form
-              className="row g-3 bg-secondary bg-opacity-50 mt-1 p-3"
+              className="row g-3 bg-light bg-opacity-50 mt-1 p-3"
               style={{ borderRadius: "8px" }}
             >
-              <div className=" col-md-12 text-center m-0 fs-3 alert alert-success ">
+              <div className="h2 col-md-12 text-center m-0 fs-3 alert alert-success">
                 Register Here
               </div>
               <div className="col-md-6">

@@ -1,8 +1,11 @@
 package com.cdac.LearningPie.Controller;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +19,8 @@ import com.cdac.LearningPie.Services.UserService;
 import com.cdac.LearningPie.dto.UserDto;
 import com.cdac.LearningPie.entity.User;
 
+
+
 @RestController
 @CrossOrigin
 public class UserController {
@@ -28,7 +33,7 @@ public class UserController {
 	  }
 	  
 	  @PostMapping("/login")
-	  public User loginUser(@RequestBody User user) {
+	  public List<User> loginUser(@RequestBody User user) {
 			return userService.isExistingUser(user.getUserName(), user.getPassword()) ;	  
 	  }
 	  

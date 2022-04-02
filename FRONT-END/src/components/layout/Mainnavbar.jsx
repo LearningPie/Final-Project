@@ -5,7 +5,7 @@ export default function Usernavbar() {
   return (
     <>
       <div className="sticky-top ">
-        <Navbar bg="dark" expand="lg">
+        <Navbar expand="lg" style={{ backgroundColor: "#795548" }}>
           <div className="d-flex justify-content-start">
             <Navbar.Brand
               id="textcolor"
@@ -39,7 +39,13 @@ export default function Usernavbar() {
               <Nav.Link id="textcolor" href="/FAQ" className="text-light">
                 F&Q
               </Nav.Link>
-              <Example />
+              <Nav.Link id="textcolor" href="/aboutUs" className="text-light">
+                ABOUT US
+              </Nav.Link>
+              {/* <Nav.Link id="textcolor" href="/aboutUs" className="text-light">
+                About Us
+              </Nav.Link>
+              <Example /> */}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

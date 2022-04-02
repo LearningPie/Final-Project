@@ -11,8 +11,10 @@ import AskQuestion from "./components/userpages/AskQuestion";
 import PostQuestion from "./components/userpages/PostQuestion";
 import PostAnswer from "./components/userpages/PostAnswer";
 import UserProfile from "./components/userpages/UserProfile";
-import Home from "./components/Home";
+//import Home from "./components/Home";
 import UpdateProfile from "./components/userpages/UpdateProfile";
+import AboutUs from "./components/About Us";
+//import AboutUs from "./components/About Us";
 
 function App() {
   return (
@@ -22,14 +24,13 @@ function App() {
         <Route exact path="/register" element={<Register />} />
         <Route path="/" element={<Frontpage />} />
         <Route path="/FAQ" element={<FAQ />} />
-        {/* <Route path="*" element={<ErrorPage />} /> */}
+        <Route path="/aboutUs" element={<AboutUs />} />
       </Routes>
 
       {/* User routes */}
       <Routes>
         <Route path="/user" element={<UserHome />} />
         <Route path="/admin" element={<AdminHome />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/viewQuestion" element={<AskQuestion />} />
         <Route path="/postQuestion" element={<PostQuestion />} />
         <Route path="/userProfile" element={<UserProfile />} />

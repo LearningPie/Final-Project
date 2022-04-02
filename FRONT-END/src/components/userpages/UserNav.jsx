@@ -4,7 +4,7 @@ import logo from "../Images/logo.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Usernavbar() {
-  const name = sessionStorage.getItem("username");
+  const name = sessionStorage.getItem("name");
   let navigate = useNavigate();
   const endSession = () => {
     sessionStorage.removeItem("userSession");
@@ -17,32 +17,32 @@ export default function Usernavbar() {
   return (
     <>
       <div className="sticky-top">
-        <Navbar bg="secondary" expand="lg">
+        <Navbar expand="lg" style={{ backgroundColor: "#795548" }}>
           <Navbar.Brand id="textcolor" className="fw-bold" href="/">
             <img src={logo} height="44vh" className="mx-4" />
           </Navbar.Brand>
           <div className="ps-3 pe-5 text-center">
-            <h5 className="text-white ">
-              Welcome &nbsp;
+            <div className="text-white ">
+              Welcome <br />
               <span>{name}</span>
-            </h5>
+            </div>
           </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto fw-bold align-items-center">
-              <Nav.Link classname="p-2" href="/postquestions">
+              <Nav.Link classname="p-2" href="/postquestion">
                 Post Questions
               </Nav.Link>
               <Nav.Link id="textcolor" href="/viewQuestion">
                 View Questions
               </Nav.Link>
-              <Nav.Link id="textcolor" href="/postquestion">
+              <Nav.Link id="textcolor" href="/postAnswer">
                 Post Answers
               </Nav.Link>
-              <Nav.Link id="textcolor" href="">
-                PROFILE
+              <Nav.Link id="textcolor" href="/userprofile">
+                Profile
               </Nav.Link>
-              <Nav.Link id="textcolor" href="">
+              <Nav.Link id="textcolor" href="/">
                 <form onSubmit={endSession} action="/">
                   <button type="submit" class="btn btn-sm btn-danger">
                     <span className="fs-6 ">LOGOUT</span>

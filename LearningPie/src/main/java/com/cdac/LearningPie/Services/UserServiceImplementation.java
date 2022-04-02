@@ -23,12 +23,10 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	@Override
-	public User isExistingUser(String userName, String password) {
-		User user=userDao.findByUserNameAndPassword(userName,password);
-		if(user==null) {
-			return null;
-		}
-		return user;
+	public List<User> isExistingUser(String userName, String password) {
+		List<User> listOfUser=userDao.findByUserNameAndPassword(userName,password);
+		
+		return listOfUser;
 	}
     
 	@Override

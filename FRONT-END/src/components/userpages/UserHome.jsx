@@ -61,6 +61,23 @@ function Frontpage() {
                             Search
                           </Button>
                         </InputGroup> */}
+                        {/* <video
+                          autoPlay
+                          loop
+                          muted
+                          style={{
+                            position: "absolute",
+                            width: "100%",
+                            left: "50%",
+                            top: "50%",
+                            height: "75%",
+                            objectfit: "cover",
+                            transform: "translate(-50%, -50%)",
+                            zIndex: "-1",
+                          }}
+                        >
+                          <source src="#" type="video/mp4" />
+                        </video> */}
                       </div>
                     </div>
                   </div>

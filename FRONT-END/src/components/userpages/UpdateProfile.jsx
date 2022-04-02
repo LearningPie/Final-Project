@@ -3,6 +3,7 @@ import swal from "sweetalert2";
 import axios from "axios";
 import UserNav from "./UserNav";
 import base_url from "../../api/bootapi.js";
+import Footer from "../layout/footer";
 
 function UpdateProfile() {
   //   useEffect(() => {
@@ -40,7 +41,7 @@ function UpdateProfile() {
     axios.put(`${base_url}/updateuser/${userName}`, data).then(
       (response) => {
         swal.fire("updated").then(function () {
-          window.location = "/profile";
+          window.location = "/userprofile";
         });
         clearFields();
       },
@@ -131,128 +132,131 @@ function UpdateProfile() {
   };
 
   return (
-    <div className=" bgimg vh-100">
-      <div className="mb-5">
-        <UserNav />
-      </div>
+    <div>
+      <div className=" bgimg vh-100">
+        <div className="mb-5">
+          <UserNav />
+        </div>
 
-      <div className=" d-flex justify-content-center mt-5 bgimg">
-        <div className="m-auto w-50 pt-2 ps-5 pe-5 pb-2 mt-5 align-self-center text-white reg-form">
-          <h1 className="text-center display-4">Update Profile</h1>
+        <div className=" d-flex justify-content-center mt-5 bgimg">
+          <div className="m-auto w-50 pt-2 ps-5 pe-5 pb-2 mt-5 align-self-center text-white reg-form">
+            <h1 className="text-center display-4">Update Profile</h1>
 
-          <form className="row g-3 bg-light bg-opacity-50 mt-1">
-            <div className="col-md-6">
-              <label for="userName" className="form-label fs-5">
-                UserName
-              </label>
-              <input
-                id="uName"
-                name="uname"
-                className="form-control"
-                value={userName}
-                disabled
-              />
-            </div>
-            <div className="col-md-6">
-              <label for="name" className="form-label fs-5">
-                Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                placeholder="Full name"
-                onChange={unameinp}
-                onFocus={clearErrors}
-                value={uname}
-                required
-              />
-              <div class="invalid-feedback fs-6 fw-bold">{ename}</div>
-            </div>
+            <form className="row g-3 bg-light bg-opacity-50 mt-1">
+              <div className="col-md-6">
+                <label for="userName" className="form-label fs-5">
+                  UserName
+                </label>
+                <input
+                  id="uName"
+                  name="uname"
+                  className="form-control"
+                  value={userName}
+                  disabled
+                />
+              </div>
+              <div className="col-md-6">
+                <label for="name" className="form-label fs-5">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Full name"
+                  onChange={unameinp}
+                  onFocus={clearErrors}
+                  value={uname}
+                  required
+                />
+                <div class="invalid-feedback fs-6 fw-bold">{ename}</div>
+              </div>
 
-            <div className="col-md-6">
-              <label for="email" className="form-label fs-5">
-                Email-ID
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                name="email"
-                placeholder="Eg:-abc@gmail.com"
-                onChange={uemailinp}
-                onFocus={clearErrors}
-                value={uemail}
-                required
-              />
-              <div class="invalid-feedback fs-6 fw-bold">{eemail}</div>
-            </div>
+              <div className="col-md-6">
+                <label for="email" className="form-label fs-5">
+                  Email-ID
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Eg:-abc@gmail.com"
+                  onChange={uemailinp}
+                  onFocus={clearErrors}
+                  value={uemail}
+                  required
+                />
+                <div class="invalid-feedback fs-6 fw-bold">{eemail}</div>
+              </div>
 
-            <div className="col-md-6">
-              <label for="phone" className="form-label fs-5">
-                Phone Number
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                name="phone"
-                id="phone"
-                placeholder="Without +91"
-                onChange={uphoneinp}
-                onFocus={clearErrors}
-                value={uphone}
-                required
-              />
-              <div class="invalid-feedback fs-6 fw-bold">{ephone}</div>
-            </div>
+              <div className="col-md-6">
+                <label for="phone" className="form-label fs-5">
+                  Phone Number
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="phone"
+                  id="phone"
+                  placeholder="Without +91"
+                  onChange={uphoneinp}
+                  onFocus={clearErrors}
+                  value={uphone}
+                  required
+                />
+                <div class="invalid-feedback fs-6 fw-bold">{ephone}</div>
+              </div>
 
-            <div className="col-md-6">
-              <label for="password" className="form-label fs-5">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                name="password"
-                placeholder="Enter a strong password"
-                onChange={upasswordinp}
-                onFocus={clearErrors}
-                value={upassword}
-                required
-              />
-              <div class="invalid-feedback fs-6 fw-bold">{epassword}</div>
-            </div>
-            <div className="col-md-6">
-              <label for="conpassword" className="form-label fs-5">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="conpassword"
-                name="conpassword"
-                placeholder="Confirm entered password"
-                onChange={uconpasswordinp}
-                onFocus={clearErrors}
-                value={uconpassword}
-                required
-              />
-              <div class="invalid-feedback fs-6 fw-bold">{econpassword}</div>
-            </div>
+              <div className="col-md-6">
+                <label for="password" className="form-label fs-5">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Enter a strong password"
+                  onChange={upasswordinp}
+                  onFocus={clearErrors}
+                  value={upassword}
+                  required
+                />
+                <div class="invalid-feedback fs-6 fw-bold">{epassword}</div>
+              </div>
+              <div className="col-md-6">
+                <label for="conpassword" className="form-label fs-5">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="conpassword"
+                  name="conpassword"
+                  placeholder="Confirm entered password"
+                  onChange={uconpasswordinp}
+                  onFocus={clearErrors}
+                  value={uconpassword}
+                  required
+                />
+                <div class="invalid-feedback fs-6 fw-bold">{econpassword}</div>
+              </div>
 
-            <div className="col-md-12 text-center">
-              <input
-                type="button"
-                className="btn btn-lg btn-primary"
-                value="Update"
-                onClick={validate}
-              />
-            </div>
-          </form>
+              <div className="col-md-12 text-center">
+                <input
+                  type="button"
+                  className="btn btn-lg btn-primary"
+                  value="Update"
+                  onClick={validate}
+                />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 }

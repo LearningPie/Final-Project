@@ -7,6 +7,7 @@ export default function Cards(content) {
         style={{
           borderRadius: "20px",
           backgroundColor: `${content.color}`,
+          width: `${content.width}`,
         }}
         className="shadow p-3 mb-5  "
       >

@@ -6,6 +6,8 @@ import {
   InputGroup,
   Row,
   Offcanvas,
+  Nav,
+  NavDropdown,
 } from "react-bootstrap";
 import { useState } from "react";
 import Learning from "../components/Images/learning.png";
@@ -40,13 +42,36 @@ export default function Sidebar() {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <div className="col-md-12 ">
-            <div className="border-bottom fs-5 mb-3">Home</div>
+          <Nav className="row">
+            <div className="col-md-12  border-bottom">
+              <Nav.Link href="/user">Home</Nav.Link>
+            </div>
+            <div className="col-md-12  border-bottom">
+              <Nav.Link href="#action2">Link</Nav.Link>
+            </div>
+            <div className="col-md-12  border-bottom">
+              <Nav.Link href="#action2">Resource</Nav.Link>
+            </div>
+            <div className="col-md-12  border-bottom">
+              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+            </div>
+            <div className="col-md-12  border-bottom">
+              <Nav.Link href="#action2">Go to group</Nav.Link>
+            </div>
 
-            <div className="border-bottom fs-5 mb-3">Links</div>
-            <div className="border-bottom fs-5 mb-3">Resources</div>
-
-            <img src={Learning} width="100%" height="100%" />
+            {/* <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
+              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action5">
+                Something else here
+              </NavDropdown.Item>
+            </NavDropdown> */}
+          </Nav>
+          <div>
+            <img src={Learning} width="100%" />
           </div>
         </Offcanvas.Body>
       </Offcanvas>
