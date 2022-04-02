@@ -18,9 +18,19 @@ export default function Cards(content) {
             {content.Description}
           </Card.Text>
           <div style={{ textAlign: "center" }}>
-            <a className="btn btn-warning" href="/login">
+            <button
+              className="btn btn-warning"
+              href={content.href}
+              onClick={() => {
+                window.location = `${content.href}`;
+                sessionStorage.setItem("subject", content.subject);
+              }}
+              // onClick={() => {
+              //   sessionStorage.setItem("subject", content.subject);
+              // }}
+            >
               {content.link}
-            </a>
+            </button>
           </div>
         </Card.Body>
       </Card>

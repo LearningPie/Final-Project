@@ -6,7 +6,9 @@ import com.cdac.LearningPie.dto.AnswerDto;
 import com.cdac.LearningPie.entity.Answers;
 
 public interface AnswerService {
-        public Answers postAnswer(Answers answer);
+       
 
-		public List<Answers> getAll(); 
+		public List<Answers> getAll();
+
+		public void postAnswer(Answers answer, int questionId); 
 }

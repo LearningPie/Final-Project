@@ -5,16 +5,16 @@ import base_url from "../../api/bootapi";
 import AdminNav from "./AdminNav";
 
 function Adminusers() {
-  // useEffect(() => {
-  //   document.title = "Users List";
-  //   if (sessionStorage.getItem("admin") != "admin") {
-  //     window.location = "/";
-  //   }
-  //   viewUsers();
-  // }, []);
+  useEffect(() => {
+    // document.title = "Users List";
+    // if (sessionStorage.getItem("admin") != "admin") {
+    //   window.location = "/";
+    // }
+    viewUsers();
+  }, []);
 
   const viewUsers = () => {
-    axios.get(`${base_url}/getallusers`).then(
+    axios.get(`http://localhost:8080/getallusers`).then(
       (response) => {
         if (response.data.length == 0) {
           swal.fire({
@@ -24,6 +24,7 @@ function Adminusers() {
             button: "Ok",
           });
         }
+
         setUsers(response.data);
       },
       (error) => {

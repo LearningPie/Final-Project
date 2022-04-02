@@ -35,7 +35,7 @@ export default function Sidebar() {
           />
         </svg>
       </Button>
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas show={show} onHide={handleClose} style={{ width: "20%" }}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <b>Menu</b>
@@ -56,7 +56,7 @@ export default function Sidebar() {
               <Nav.Link href="/dashboard">Dashboard</Nav.Link>
             </div>
             <div className="col-md-12  border-bottom">
-              <Nav.Link href="#action2">Go to group</Nav.Link>
+              <Nav.Link href="/joinGroup">Go to group</Nav.Link>
             </div>
 
             {/* <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
@@ -71,7 +71,7 @@ export default function Sidebar() {
             </NavDropdown> */}
           </Nav>
           <div>
-            <img src={Learning} width="100%" />
+            <img src={Learning} width="100%" height="50%" />
           </div>
         </Offcanvas.Body>
       </Offcanvas>

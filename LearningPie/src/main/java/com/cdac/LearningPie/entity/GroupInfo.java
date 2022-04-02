@@ -22,6 +22,7 @@ public class GroupInfo {
 	private String groupName;
 	private String groupPassword;
 	private int admin;
+	private String groupDesc;
 	
 	@OneToMany(mappedBy = "group")
 	@JsonIgnore
@@ -30,7 +31,6 @@ public class GroupInfo {
 	
 	@ManyToMany
 	@JoinColumn(name = "user_id")
-	@JsonIgnore
 	private List<User> userList;
 	
 	
@@ -128,6 +128,18 @@ public class GroupInfo {
 	public String toString() {
 		return "GroupInfo [groupId=" + groupId + ", groupName=" + groupName + ", groupPassword=" + groupPassword
 				+ ", admin=" + admin + ", file=" + file + ", userList=" + userList + ", question=" + question + "]";
+	}
+
+
+
+	public String getGroupDesc() {
+		return groupDesc;
+	}
+
+
+
+	public void setGroupDesc(String groupDesc) {
+		this.groupDesc = groupDesc;
 	}
 	
 

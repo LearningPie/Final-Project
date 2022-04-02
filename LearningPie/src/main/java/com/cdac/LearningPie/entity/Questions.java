@@ -28,8 +28,7 @@ public class Questions {
 	private User user;
 	
 	@OneToMany(mappedBy = "question")
-	
-	private List<Answers> answerList;
+    private List<Answers> answerList;
 	
 	@ManyToOne
 	@JoinColumn(name="group_id")

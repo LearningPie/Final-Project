@@ -62,9 +62,6 @@ public class Answers {
 	public String toString() {
 		return "Answers [answerId=" + answerId + ", answer=" + answer + ", question=" + question + ", user=" + user
 				+ "]";
-	}      
-	
-	
-	
-	
+	}
+
 }

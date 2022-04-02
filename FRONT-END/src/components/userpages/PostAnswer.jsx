@@ -3,6 +3,7 @@ import { Dropdown, Form, Row } from "react-bootstrap";
 import Usernavbar from "./UserNav";
 import Sidebar from "../Sidebar";
 import Footer from "../layout/footer";
+import axios from "axios";
 
 function Postanswer() {
   // useEffect(() => {
@@ -14,23 +15,25 @@ function Postanswer() {
   //   }
   // }, []);
 
-  let [que, setQue] = useState("");
-  let [sub, setSub] = useState("");
-  let Question = {
-    question: que,
-    subject: sub,
-    // user: {
-    //   userId: sessionStorage.getItem(),
-    // },
+  let [ans, setAns] = useState("");
+  let Answer = {
+    answer: ans,
+    user: { userId: sessionStorage.getItem("userId") },
   };
-  let setQuestion = (e) => setQue(e.target.value);
-  let setSubject = (e) => setSub(e.target.value);
-  const Submit = (Question) => {
+  let giveAnswer = (e) => setAns(e.target.value);
+
+  const Submit = () => {
     axios
-      .post(`http://localhost:8080/postQuestion`, Question)
+      .post(
+        `http://localhost:8080/postAnswer/${sessionStorage.getItem(
+          "questionId"
+        )}`,
+        Answer
+      )
       .then((response) => {
         console.log(response.data);
       });
+    window.location("/viewQuestions");
   };
   return (
     <>
@@ -46,7 +49,9 @@ function Postanswer() {
             style={{ height: "100vh", width: "100%" }}
           >
             <div className="col-md-10">
-              <h4 className="alert alert-info ">Post Your Question Here</h4>
+              <h4 className="alert alert-info ">
+                {sessionStorage.getItem("question")}
+              </h4>
               <Form onSubmit={Submit}>
                 <Form.Group
                   className="mb-3 shadow"
@@ -54,46 +59,21 @@ function Postanswer() {
                 >
                   <Form.Control
                     as="textarea"
-                    placeholder="Write your question here......"
+                    placeholder="Write your answer here......"
                     rows={15}
-                    value={que}
+                    value={ans}
                     name="question"
-                    onChange={setQuestion}
+                    onChange={giveAnswer}
                   />
                 </Form.Group>
 
                 <div className="d-flex justify-content-start">
                   <span>
-                    <Dropdown>
-                      <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                        Select Subject
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        <Dropdown.Item value={sub} name="subject">
-                          JavaScript
-                        </Dropdown.Item>
-                        <Dropdown.Item value={sub} name="subject">
-                          Database
-                        </Dropdown.Item>
-                        <Dropdown.Item value={sub} name="subject">
-                          Reactjs
-                        </Dropdown.Item>
-                        <Dropdown.Item value={sub} name="subject">
-                          ADS
-                        </Dropdown.Item>
-                        <Dropdown.Item value={sub} name="subject">
-                          Java
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
+                    <button className="btn btn-primary">SUBMIT</button>
                   </span>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   <span>
-                    <button className="btn btn-success">SUBMIT</button>
-                  </span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <span>
-                    <button className="btn btn-danger">CANCEL</button>
+                    <button className="btn btn-danger">CLEAR</button>
                   </span>
                 </div>
               </Form>

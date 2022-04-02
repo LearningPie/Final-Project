@@ -17,8 +17,8 @@ public class AnswerServiceImplementation implements AnswerService {
 	AnswersDao answerDao;
 
 	@Override
-	public Answers postAnswer(Answers answer) {
-		return answerDao.save(answer);
+	public void postAnswer(Answers answer,int questionId) {
+		 answerDao.postAnswer(answer.getAnswer(),answer.getUser().getUserId() , questionId);
 	}
 
 //  @Override

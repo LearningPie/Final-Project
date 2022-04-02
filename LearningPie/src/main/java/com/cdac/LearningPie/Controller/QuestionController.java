@@ -30,6 +30,15 @@ public class QuestionController {
     	return questionService.getAllQuestions();
      }
      
-//     
+     @GetMapping("/getAllQuestionsBySubject/{subject}")
+     public List<Questions> getAllQuestionsBySubject(@PathVariable String subject){
+    	 return questionService.getAllQuestionsBySubject(subject);
+     }
+
+     @GetMapping("/getAllQuestionsByUser/{userId}")
+     public List<Questions> getAllQuestionsByUser(@PathVariable int userId){
+    	 return questionService.getAllQuestionsByUser(userId);
+    	 
+     }
     
 }

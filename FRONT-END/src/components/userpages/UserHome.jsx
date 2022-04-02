@@ -10,9 +10,9 @@ import {
 } from "react-bootstrap";
 import Cards from "../Cards";
 import UserNav from "./UserNav";
-
 import Footer from "../layout/footer";
 import Sidebar from "../Sidebar";
+import Matrix from "../Images/Matrix.mp4";
 
 function Frontpage() {
   // useEffect(() => {
@@ -39,15 +39,32 @@ function Frontpage() {
           <div>
             <Sidebar />
             <Row className="fluid-Container">
-              <div className="col-md-12 ">
-                <div
-                  className="col-md-12 bg-warning"
-                  style={{ height: "70vh" }}
-                >
-                  <div style={{ height: "50%", textAlign: "center" }}>
-                    <div className="row d-flex justify-content-end">
-                      <div className="col-md-3">
-                        {/* <InputGroup className="mt-5">
+              <div className="col-md-12">
+                <div>
+                  <div style={{ height: "70vh" }}>
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      style={{
+                        position: "absolute",
+                        width: "100%",
+                        left: "50%",
+                        top: "50%",
+                        height: "80%",
+                        objectfit: "cover",
+                        transform: "translate(-50%, -50%)",
+                        zIndex: "-1",
+                        display: "flex",
+                        alignItems: "stretch",
+                      }}
+                    >
+                      <source src={Matrix} type="video/mp4" />
+                    </video>
+                    <div style={{ height: "50%", textAlign: "center" }}>
+                      <div className="row d-flex justify-content-end">
+                        <div className="col-md-3">
+                          {/* <InputGroup className="mt-5">
                           <FormControl
                             placeholder="Search Your Question Here.."
                             aria-label="Search Your Question Here.."
@@ -61,38 +78,32 @@ function Frontpage() {
                             Search
                           </Button>
                         </InputGroup> */}
-                        {/* <video
-                          autoPlay
-                          loop
-                          muted
-                          style={{
-                            position: "absolute",
-                            width: "100%",
-                            left: "50%",
-                            top: "50%",
-                            height: "75%",
-                            objectfit: "cover",
-                            transform: "translate(-50%, -50%)",
-                            zIndex: "-1",
-                          }}
-                        >
-                          <source src="#" type="video/mp4" />
-                        </video> */}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div style={{ height: "50%", textAlign: "center" }}>
-                    <span>
-                      <button className="btn btn-outline-dark">
-                        CREATE GROUP
-                      </button>
-                    </span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span>
-                      <button className="btn btn-outline-dark">
-                        JOIN GROUP
-                      </button>
-                    </span>
+                    <div style={{ height: "50%", textAlign: "center" }}>
+                      <span>
+                        <button
+                          className="btn btn-light"
+                          onClick={() => {
+                            window.location = "/createGroup";
+                          }}
+                        >
+                          CREATE GROUP
+                        </button>
+                      </span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <span>
+                        <button
+                          className="btn btn-light"
+                          onClick={() => {
+                            window.location = "/joinGroup";
+                          }}
+                        >
+                          JOIN GROUP
+                        </button>
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -103,44 +114,104 @@ function Frontpage() {
                   <div className="container mt-4">
                     <div className="row ">
                       <div className="col-md-3">
-                        <Cards title="Core Java" link="View Questions"></Cards>
+                        <Cards
+                          title="Core Java"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="Java"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="Adv Java" link="View Questions"></Cards>
+                        <Cards
+                          title="Adv Java"
+                          link="View Questions "
+                          href="/questionList"
+                          subject="Adv Java"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="OS" link="View Questions"></Cards>
+                        <Cards
+                          title="OS"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="OS"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="Database" link="View Questions"></Cards>
+                        <Cards
+                          title="Database"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="Database"
+                        ></Cards>
                       </div>
                     </div>
                     <div className="row ">
                       <div className="col-md-3">
-                        <Cards title="React JS" link="View Questions"></Cards>
+                        <Cards
+                          title="React JS"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="React JS"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="WPT" link="View Questions"></Cards>
+                        <Cards
+                          title="WPT"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="WPT"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="ADS" link="View Questions"></Cards>
+                        <Cards
+                          title="ADS"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="ADS"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="C++" link="View Questions"></Cards>
+                        <Cards
+                          title="C++"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="C++"
+                        ></Cards>
                       </div>
                     </div>
                     <div className="row ">
                       <div className="col-md-3">
-                        <Cards title="Dot Net" link="View Questions"></Cards>
+                        <Cards
+                          title="Dot Net"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="Dot Net"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="Python" link="View Questions"></Cards>
+                        <Cards
+                          title="Python"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="Python"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="JS" link="View Questions"></Cards>
+                        <Cards
+                          title="JS"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="JS"
+                        ></Cards>
                       </div>
                       <div className="col-md-3">
-                        <Cards title="Swift" link="View Questions"></Cards>
+                        <Cards
+                          title="Swift"
+                          link="View Questions"
+                          href="/questionList"
+                          subject="Swift"
+                        ></Cards>
                       </div>
                     </div>
                   </div>

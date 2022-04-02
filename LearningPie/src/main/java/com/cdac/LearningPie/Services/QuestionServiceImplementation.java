@@ -21,6 +21,15 @@ public class QuestionServiceImplementation implements QuestionService {
 	public List<Questions> getAllQuestions() {
 		return questiondao.findAll();
 	}
+	@Override
+	public List<Questions> getAllQuestionsBySubject(String subject) {
+		
+		return questiondao.getAllQuestionBySubject(subject);
+	}
+	@Override
+	public List<Questions> getAllQuestionsByUser(int userId) {
+		return questiondao.getAllByUser(userId);
+	}
 
 	
 

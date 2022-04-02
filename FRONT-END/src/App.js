@@ -14,6 +14,10 @@ import UserProfile from "./components/userpages/UserProfile";
 //import Home from "./components/Home";
 import UpdateProfile from "./components/userpages/UpdateProfile";
 import AboutUs from "./components/About Us";
+import QuestionList from "./components/userpages/QuestionList";
+import Dashboard from "./components/userpages/Dashboard";
+import JoinGroup from "./components/userpages/JoinGroup";
+import Group from "./components/userpages/Group";
 //import AboutUs from "./components/About Us";
 
 function App() {
@@ -36,6 +40,10 @@ function App() {
         <Route path="/userProfile" element={<UserProfile />} />
         <Route path="/updateProfile" element={<UpdateProfile />} />
         <Route path="/postAnswer" element={<PostAnswer />} />
+        <Route path="/questionList" element={<QuestionList />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/joinGroup" element={<JoinGroup></JoinGroup>} />
+        <Route path="/createGroup" element={<Group />} />
       </Routes>
 
       {/* Admin routes */}

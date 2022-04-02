@@ -30,16 +30,16 @@ export default function Usernavbar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto fw-bold align-items-center">
-              <Nav.Link classname="p-2" href="/postquestion">
-                Post Questions
+              <Nav.Link className="text-light" href="/postquestion">
+                Post Question
               </Nav.Link>
-              <Nav.Link id="textcolor" href="/viewQuestion">
+              <Nav.Link className="text-light" href="/viewQuestion">
                 View Questions
               </Nav.Link>
-              <Nav.Link id="textcolor" href="/postAnswer">
+              {/* <Nav.Link id="textcolor" href="/postAnswer">
                 Post Answers
-              </Nav.Link>
-              <Nav.Link id="textcolor" href="/userprofile">
+              </Nav.Link> */}
+              <Nav.Link className="text-light" href="/userprofile">
                 Profile
               </Nav.Link>
               <Nav.Link id="textcolor" href="/">
