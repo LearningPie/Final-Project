@@ -18,6 +18,9 @@ import QuestionList from "./components/userpages/QuestionList";
 import Dashboard from "./components/userpages/Dashboard";
 import JoinGroup from "./components/userpages/JoinGroup";
 import Group from "./components/userpages/Group";
+import Demo from "./components/Demo";
+import Datatable from "./components/Datatable";
+import QuestionBank from "./components/QuestionBank";
 //import AboutUs from "./components/About Us";
 
 function App() {
@@ -44,6 +47,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/joinGroup" element={<JoinGroup></JoinGroup>} />
         <Route path="/createGroup" element={<Group />} />
+        <Route path="/demo" element={<Demo />} />
+        <Route path="/dataTable" element={<Datatable></Datatable>} />
+        <Route path="/questionBank" element={<QuestionBank />} />
       </Routes>
 
       {/* Admin routes */}

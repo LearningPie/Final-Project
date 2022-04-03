@@ -74,10 +74,10 @@ function AdminNav() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto fw-bold align-items-center">
-              <Nav.Link classname="p-2" href="/postquestion">
+              <Nav.Link classname="p-2" href="/viewQuestion">
                 View Questions
               </Nav.Link>
-              <Nav.Link id="textcolor" href="/viewQuestion">
+              <Nav.Link id="textcolor" href="/viewAnswer">
                 View Answers
               </Nav.Link>
               <Nav.Link id="textcolor" href="/userList">

@@ -7,6 +7,7 @@ import axios from "axios";
 import Sidebar from "../Sidebar";
 import Postanswer from "./PostAnswer";
 import { Popover } from "bootstrap";
+import Datatable from "../Datatable";
 
 function AskQuestion() {
   let [array, setArray] = useState([]);
@@ -21,9 +22,10 @@ function AskQuestion() {
       <Sidebar />
       <div class="fluid-container ">
         <div class="row" style={{ height: "160vh" }}>
-          <div class="col-md-2 bg-warning">One of three columns</div>
-          <div class="col-md-8">
-            <div className="row mb-2 d-flex justify-content-end">
+          <div class="col-md-1 bg-warning">One of three columns</div>
+          <div class="col-md-10">
+            <Datatable />
+            {/* <div className="row mb-2 d-flex justify-content-end">
               <div className="col-md-6">
                 <InputGroup size="lg" className="mt-2">
                   <FormControl
@@ -42,7 +44,7 @@ function AskQuestion() {
                     <Accordion>
                       <Accordion.Item eventKey="0">
                         {/* <Accordion.Header>{question.solution}</Accordion.Header> */}
-                        <Accordion.Header>
+            {/* <Accordion.Header>
                           <div className="d-flex justify-content-between align-items-center w-100">
                             {item.question}
                             <button
@@ -86,7 +88,7 @@ function AskQuestion() {
                                         <button className="btn btn-primary">
                                           Dislike
                                         </button> */}
-                                        </p>
+            {/* </p>
                                       </div>
                                     </div>
                                   </div>
@@ -102,9 +104,9 @@ function AskQuestion() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
-          <div class="col-md-2 bg-primary"></div>
+          <div class="col-md-1 bg-primary"></div>
         </div>
       </div>
       <Footer />

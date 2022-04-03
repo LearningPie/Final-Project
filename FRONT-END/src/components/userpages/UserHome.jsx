@@ -39,28 +39,28 @@ function Frontpage() {
           <div>
             <Sidebar />
             <Row className="fluid-Container">
+              <video
+                autoPlay
+                loop
+                muted
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  left: "50%",
+                  top: "50%",
+                  height: "80%",
+                  objectfit: "cover",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: "-1",
+                  display: "flex",
+                  alignItems: "stretch",
+                }}
+              >
+                <source src={Matrix} type="video/mp4" />
+              </video>
               <div className="col-md-12">
                 <div>
                   <div style={{ height: "70vh" }}>
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      style={{
-                        position: "absolute",
-                        width: "100%",
-                        left: "50%",
-                        top: "50%",
-                        height: "80%",
-                        objectfit: "cover",
-                        transform: "translate(-50%, -50%)",
-                        zIndex: "-1",
-                        display: "flex",
-                        alignItems: "stretch",
-                      }}
-                    >
-                      <source src={Matrix} type="video/mp4" />
-                    </video>
                     <div style={{ height: "50%", textAlign: "center" }}>
                       <div className="row d-flex justify-content-end">
                         <div className="col-md-3">
@@ -117,7 +117,7 @@ function Frontpage() {
                         <Cards
                           title="Core Java"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="Java"
                         ></Cards>
                       </div>
@@ -125,7 +125,7 @@ function Frontpage() {
                         <Cards
                           title="Adv Java"
                           link="View Questions "
-                          href="/questionList"
+                          href="/questionBank"
                           subject="Adv Java"
                         ></Cards>
                       </div>
@@ -133,7 +133,7 @@ function Frontpage() {
                         <Cards
                           title="OS"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="OS"
                         ></Cards>
                       </div>
@@ -141,7 +141,7 @@ function Frontpage() {
                         <Cards
                           title="Database"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="Database"
                         ></Cards>
                       </div>
@@ -151,7 +151,7 @@ function Frontpage() {
                         <Cards
                           title="React JS"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="React JS"
                         ></Cards>
                       </div>
@@ -159,7 +159,7 @@ function Frontpage() {
                         <Cards
                           title="WPT"
                           link="View Questions"
-                          href="/questionList"
+                          href="//questionBank"
                           subject="WPT"
                         ></Cards>
                       </div>
@@ -167,7 +167,7 @@ function Frontpage() {
                         <Cards
                           title="ADS"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="ADS"
                         ></Cards>
                       </div>
@@ -175,7 +175,7 @@ function Frontpage() {
                         <Cards
                           title="C++"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="C++"
                         ></Cards>
                       </div>
@@ -185,7 +185,7 @@ function Frontpage() {
                         <Cards
                           title="Dot Net"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="Dot Net"
                         ></Cards>
                       </div>
@@ -193,7 +193,7 @@ function Frontpage() {
                         <Cards
                           title="Python"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="Python"
                         ></Cards>
                       </div>
@@ -201,7 +201,7 @@ function Frontpage() {
                         <Cards
                           title="JS"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="JS"
                         ></Cards>
                       </div>
@@ -209,7 +209,7 @@ function Frontpage() {
                         <Cards
                           title="Swift"
                           link="View Questions"
-                          href="/questionList"
+                          href="/questionBank"
                           subject="Swift"
                         ></Cards>
                       </div>

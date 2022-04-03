@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Container, Modal, Nav, Navbar } from "react-bootstrap";
 import logo from "../Images/logo.png";
 import { useNavigate } from "react-router-dom";
+import UserAvatar from "./userAvatar";
 
 export default function Usernavbar() {
   const name = sessionStorage.getItem("name");
@@ -42,6 +43,9 @@ export default function Usernavbar() {
               <Nav.Link className="text-light" href="/userprofile">
                 Profile
               </Nav.Link>
+              <span>
+                <UserAvatar userName={sessionStorage.getItem("name")} />
+              </span>
               <Nav.Link id="textcolor" href="/">
                 <form onSubmit={endSession} action="/">
                   <button type="submit" class="btn btn-sm btn-danger">

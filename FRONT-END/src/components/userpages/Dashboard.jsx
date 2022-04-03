@@ -5,6 +5,7 @@ import { InputGroup, FormControl, Accordion } from "react-bootstrap";
 import Java from "../Images/c++.png";
 import axios from "axios";
 import Sidebar from "../Sidebar";
+import UserAvatar from "./userAvatar";
 
 function Dashboard() {
   let [array, setArray] = useState([]);
@@ -65,7 +66,7 @@ function Dashboard() {
                                   <div class="card mb-3">
                                     <div class="row g-0">
                                       <div class="col-md-2 d-flex justify-content-center align-items-center   ">
-                                        <img src={Java} height="70px" />
+                                        {/* <UserAvatar name={item.user.userName} /> */}
                                       </div>
                                       <div class="col-md-10">
                                         <div class="card-body">
