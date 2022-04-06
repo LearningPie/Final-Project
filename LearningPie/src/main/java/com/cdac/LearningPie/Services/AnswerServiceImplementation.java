@@ -18,8 +18,13 @@ public class AnswerServiceImplementation implements AnswerService {
 
 	@Override
 	public void postAnswer(Answers answer,int questionId) {
-		 answerDao.postAnswer(answer.getAnswer(),answer.getUser().getUserId() , questionId);
+		 answerDao.postAnswer(answer.getAnswer(),questionId,answer.getUser().getUserId());
 	}
+//	
+//	@Override
+//	public void postAnswer(Answers answer) {
+//		 answerDao.save(answer);
+//		 }
 
 //  @Override
 //	public List<Answers> getAll() {

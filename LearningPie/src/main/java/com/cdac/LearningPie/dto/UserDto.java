@@ -1,39 +1,19 @@
 package com.cdac.LearningPie.dto;
 
 public class UserDto {
-        private int userId;
         private String userName;
-        private String password;
-        private String message;
-        private String status;
-		public int getUserId() {
-			return userId;
-		}
-		public void setUserId(int userId) {
-			this.userId = userId;
-		}
+        private String name;
 		public String getUserName() {
 			return userName;
 		}
 		public void setUserName(String userName) {
 			this.userName = userName;
 		}
-		public String getPassword() {
-			return password;
+		public String getName() {
+			return name;
 		}
-		public void setPassword(String password) {
-			this.password = password;
+		public void setName(String name) {
+			this.name = name;
 		}
-		public String getMessage() {
-			return message;
-		}
-		public void setMessage(String message) {
-			this.message = message;
-		}
-		public String getStatus() {
-			return status;
-		}
-		public void setStatus(String status) {
-			this.status = status;
-		}
+		
 }

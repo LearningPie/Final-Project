@@ -10,5 +10,6 @@ public interface AnswerService {
 
 		public List<Answers> getAll();
 
-		public void postAnswer(Answers answer, int questionId); 
+		public void postAnswer(Answers answer, int questionId);
+//		public void postAnswer(Answers answer);
 }

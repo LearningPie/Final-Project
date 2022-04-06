@@ -6,6 +6,7 @@ import axios from "axios";
 import Sidebar from "../Sidebar";
 import Postanswer from "./PostAnswer";
 import { Popover } from "bootstrap";
+import ViewGroup from "../ViewGroup";
 
 function JoinGroup() {
   let [array, setArray] = useState([]);
@@ -19,43 +20,25 @@ function JoinGroup() {
       <Usernavbar />
       <Sidebar />
       <div class="container ">
-        <div class="row" style={{ height: "160vh" }}>
-          <div class="col-md-12">
+        <div class="row justify-content-center" style={{ height: "160vh" }}>
+          <div class="col-md-8">
             <div className="row mb-2 d-flex justify-content-center">
-              <div className="text-center fs-2 alert alert-success">
+              <span className="text-center fs-2 alert alert-success">
                 Groups List
-              </div>
+              </span>
             </div>
-            <div className="row overflow-auto" style={{ height: "120vh" }}>
+            <div
+              className="row overflow-auto justify-content-center"
+              style={{ height: "120vh" }}
+            >
               <div>
                 {array.map((item) => (
                   <div>
-                    <Accordion>
-                      <Accordion.Item eventKey="0">
-                        <Accordion.Header>
-                          <div className="d-flex justify-content-between align-items-center w-100">
-                            {item.groupName}
-                            <button
-                              className="btn btn-warning mx-4"
-                              onClick={() => {
-                                window.location = "/postGroup";
-                                sessionStorage.setItem(
-                                  "JoinGroup",
-                                  item.jgroup
-                                );
-                                sessionStorage.setItem(
-                                  "joingroupId",
-                                  item.joingroupId
-                                );
-                              }}
-                            >
-                              Join Group
-                            </button>
-                          </div>
-                        </Accordion.Header>
-                        <Accordion.Body>{item.groupDesc}</Accordion.Body>
-                      </Accordion.Item>
-                    </Accordion>
+                    <ViewGroup
+                      groupName={item.groupName}
+                      desc={item.groupDesc}
+                      groupId={item.groupId}
+                    ></ViewGroup>
                   </div>
                 ))}
               </div>

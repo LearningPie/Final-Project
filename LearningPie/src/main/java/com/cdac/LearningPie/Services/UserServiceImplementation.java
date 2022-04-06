@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cdac.LearningPie.dto.UserDto;
+import com.cdac.LearningPie.entity.GroupInfo;
 import com.cdac.LearningPie.entity.User;
 import com.cdac.LearningPie.repository.UserDao;
 
@@ -34,6 +36,7 @@ public class UserServiceImplementation implements UserService {
 		return userDao.findByUserName(userName);	
 	}
 	
+	
 	@Override
 	public int updateUser(String name, String email, String phoneNo, String password, String userName) {
 		return userDao.updateUser(name, email, phoneNo, password, userName);
@@ -41,7 +44,7 @@ public class UserServiceImplementation implements UserService {
 	
 	@Override
 	public List<User> getAllUsers() {
-		return this.userDao.findAll();
+		return userDao.findAll();
 	}
 	
 	@Override
@@ -54,5 +57,20 @@ public class UserServiceImplementation implements UserService {
 		User user= userDao.getById(userId);
 		userDao.delete(user);
 	}
+
+	@Override
+	public void joinGroupByUserId(int userId,int groupId) {
+		if (isExistingMember(userId, groupId) == null) {
+			return;
+		}
+
+		userDao.joinGroup(userId, groupId);
+		
+	}
+	
+	public Object isExistingMember(int userId,int groupId) {
+		return userDao.existingMember(userId,groupId);
+	}
+
 	
 }

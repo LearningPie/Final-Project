@@ -34,7 +34,6 @@ public class GroupInfo {
 	private List<User> userList;
 	
 	
-	
 	@OneToMany(mappedBy = "group")
 	private List<Questions> question;
 

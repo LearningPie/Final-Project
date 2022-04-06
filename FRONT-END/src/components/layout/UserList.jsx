@@ -37,7 +37,7 @@ function Adminusers() {
   const [users, setUsers] = useState([]);
 
   const deleteUser = () => {
-    axios.delete(`${base_url}/deleteuser/${users.userId}`).then(
+    axios.delete(`${base_url}/deleteuser/${users[0].userId}`).then(
       (response) => {
         //console.log(response);
       },

@@ -40,5 +40,10 @@ public class QuestionController {
     	 return questionService.getAllQuestionsByUser(userId);
     	 
      }
+     
+     @GetMapping("/deleteQuestion/{questionId}")
+     public void deleteQuestion(@PathVariable int questionId) {
+    	 questionService.deleteQuestionById(questionId);
+     }
     
 }

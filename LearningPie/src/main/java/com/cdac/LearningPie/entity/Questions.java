@@ -22,6 +22,7 @@ public class Questions {
 	private String question;
 	private boolean status;
 	private String subject;
+	private boolean isDeleted;
     
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -32,6 +33,7 @@ public class Questions {
 	
 	@ManyToOne
 	@JoinColumn(name="group_id")
+	@JsonIgnore
 	private GroupInfo group;
 
 	public int getQuestionId() {
@@ -94,6 +96,14 @@ public class Questions {
 	public String toString() {
 		return "Questions [questionId=" + questionId + ", question=" + question + ", status=" + status + ", subject="
 				+ subject + ", user=" + user + ", answerList=" + answerList + ", group=" + group + "]";
+	}
+
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 	
 	

@@ -30,6 +30,10 @@ public class QuestionServiceImplementation implements QuestionService {
 	public List<Questions> getAllQuestionsByUser(int userId) {
 		return questiondao.getAllByUser(userId);
 	}
+	@Override
+	public void deleteQuestionById(int questionId) {
+		questiondao.deleteQuestion(questionId);
+	}
 
 	
 

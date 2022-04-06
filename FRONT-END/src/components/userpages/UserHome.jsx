@@ -159,7 +159,7 @@ function Frontpage() {
                         <Cards
                           title="WPT"
                           link="View Questions"
-                          href="//questionBank"
+                          href="/questionBank"
                           subject="WPT"
                         ></Cards>
                       </div>

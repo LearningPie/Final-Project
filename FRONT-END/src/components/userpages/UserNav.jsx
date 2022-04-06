@@ -41,11 +41,9 @@ export default function Usernavbar() {
                 Post Answers
               </Nav.Link> */}
               <Nav.Link className="text-light" href="/userprofile">
-                Profile
-              </Nav.Link>
-              <span>
                 <UserAvatar userName={sessionStorage.getItem("name")} />
-              </span>
+              </Nav.Link>
+
               <Nav.Link id="textcolor" href="/">
                 <form onSubmit={endSession} action="/">
                   <button type="submit" class="btn btn-sm btn-danger">

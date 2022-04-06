@@ -2,6 +2,8 @@ package com.cdac.LearningPie.Services;
 
 import java.util.List;
 
+import com.cdac.LearningPie.dto.UserDto;
+import com.cdac.LearningPie.entity.GroupInfo;
 import com.cdac.LearningPie.entity.User;
 
 
@@ -20,4 +22,9 @@ public interface UserService {
         public void deleteUser(int userId);
         
         public User getUser(String userName);
+
+        public void joinGroupByUserId(int userId, int groupId);
+
+
+		
 }

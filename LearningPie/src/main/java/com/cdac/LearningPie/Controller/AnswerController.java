@@ -27,6 +27,12 @@ public class AnswerController {
     	  
       }
       
+//      @PostMapping("/postAnswer")
+//      public void postAnswers(@RequestBody Answers answer) {
+//    	  answerService.postAnswer(answer);
+//    	  
+//      }
+      
       @GetMapping("/getAll")
       public List<Answers> getAllQuestionsAndAnswers() {
     	  return answerService.getAll();

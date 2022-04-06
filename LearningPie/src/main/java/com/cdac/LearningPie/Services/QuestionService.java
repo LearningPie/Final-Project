@@ -9,4 +9,5 @@ public interface QuestionService {
      public List<Questions> getAllQuestions();
      public List<Questions> getAllQuestionsBySubject(String subject);
 	 public List<Questions> getAllQuestionsByUser(int userId);
-}
+	 public void deleteQuestionById(int questionId);
+} 

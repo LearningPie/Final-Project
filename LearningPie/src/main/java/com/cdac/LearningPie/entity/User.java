@@ -20,6 +20,7 @@ public class User {
 	private String securityQuestion;
 	private boolean status = false;
 	private String securityAnswer;
+	private boolean isDeleted=false;
 	
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
@@ -30,6 +31,7 @@ public class User {
 	@JsonIgnore
 	private List<Answers> answerList;
 	
+
 	@ManyToMany(mappedBy = "userList")
 	@JsonIgnore
 	private List<GroupInfo> groupList;
@@ -122,6 +124,10 @@ public class User {
 		this.answerList = answerList;
 	}
 
+	
+
+	
+
 	public List<GroupInfo> getGroupList() {
 		return groupList;
 	}
@@ -137,6 +143,16 @@ public class User {
 				+ ", status=" + status + ", securityAnswer=" + securityAnswer + ", questionList=" + questionList
 				+ ", answerList=" + answerList + ", groupList=" + groupList + "]";
 	}
+
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	
 	
 	
 	

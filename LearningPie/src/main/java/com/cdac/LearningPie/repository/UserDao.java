@@ -12,6 +12,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.cdac.LearningPie.dto.UserDto;
+import com.cdac.LearningPie.entity.GroupInfo;
 import com.cdac.LearningPie.entity.User;
 
 @Repository
@@ -29,4 +31,19 @@ public interface UserDao extends JpaRepository<User, Integer>  {
 	
 	@Query(value="select * from user where user_name=:un", nativeQuery = true)
 	public User getUser(@Param("un") String userName);
+
+	
+    @Modifying
+    @Transactional
+	@Query(value="insert into group_info_user_list (group_list_group_id,user_list_user_id) values (:g,:u);",nativeQuery = true)
+	public void joinGroup(@Param("u") int userId,@Param("g")int groupId);
+    
+    @Query(value="select user_name,name from user_group_table inner join user on user_group_table.user_id=user.user_id where user.group_id=:g",nativeQuery = true)
+	public List<User> findAllById(@Param("g") int groupId);
+
+    @Query(value="select count(*) from group_info_user_list where user_list_user_id=:u and group_list_group_id=:g group by user_list_user_id ", nativeQuery = true)
+    public Object existingMember(@Param("u")int userId,@Param("g") int groupId);
+
+//    @Query(value="select user_id from ")
+//	public void existingMember(int userId, int groupId);
 }

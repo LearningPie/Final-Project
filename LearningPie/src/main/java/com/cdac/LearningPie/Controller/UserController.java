@@ -16,51 +16,56 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.LearningPie.Services.UserService;
+import com.cdac.LearningPie.dto.GroupDto;
 import com.cdac.LearningPie.dto.UserDto;
+import com.cdac.LearningPie.entity.GroupInfo;
 import com.cdac.LearningPie.entity.User;
-
-
 
 @RestController
 @CrossOrigin
 public class UserController {
-	  @Autowired
-      private UserService userService;
-	  
-	  @PostMapping("/register")
-	  public void registerUser(@RequestBody User user) {
-		  userService.registerUser(user);
-	  }
-	  
-	  @PostMapping("/login")
-	  public List<User> loginUser(@RequestBody User user) {
-			return userService.isExistingUser(user.getUserName(), user.getPassword()) ;	  
-	  }
-	  
-	  @PostMapping("/findbyusername")
-	  public User findByUserName(@RequestBody User user){
+	@Autowired
+	private UserService userService;
+
+	@PostMapping("/register")
+	public void registerUser(@RequestBody User user) {
+		userService.registerUser(user);
+	}
+
+	@PostMapping("/login")
+	public List<User> loginUser(@RequestBody User user) {
+		return userService.isExistingUser(user.getUserName(), user.getPassword());
+	}
+
+	@PostMapping("/findbyusername")
+	public User findByUserName(@RequestBody User user) {
 		return userService.findByUserName(user.getUserName());
-	  }
-	  
-	  @PutMapping("/updateuser/{uname}")
-	  public int updateUser(@RequestBody User user, @PathVariable String uname) {
-		  return userService.updateUser(user.getName(), user.getEmail(), user.getPhoneNo(), user.getPassword(), uname);
-	  }
-	  
-	  @GetMapping("/getallusers")
-		public List<User> getAllUsers(User user){	
-			return userService.getAllUsers();	
-		}
-	  
-	   @PostMapping("/getuser/{uname}")
-	   public User getUser( @PathVariable String uname) {
-			return userService.getUser(uname);
-		}
-			  
-	  @DeleteMapping("deleteuser/{uid}")
-		public String deleteUser(@PathVariable int uid) {
-			userService.deleteUser(uid);
-			return "Deleted";
-		}
-	  
+	}
+
+	@PostMapping("/joinGroup")
+	public void joinGroup(@RequestBody GroupDto groupDto) {
+		userService.joinGroupByUserId(groupDto.getUserId(),groupDto.getGroupId());
+	}
+	
+	@PutMapping("/updateuser/{uname}")
+	public int updateUser(@RequestBody User user, @PathVariable String uname) {
+		return userService.updateUser(user.getName(), user.getEmail(), user.getPhoneNo(), user.getPassword(), uname);
+	}
+
+	@GetMapping("/getallusers")
+	public List<User> getAllUsers(User user) {
+		return userService.getAllUsers();
+	}
+
+	@PostMapping("/getuser/{uname}")
+	public User getUser(@PathVariable String uname) {
+		return userService.getUser(uname);
+	}
+
+	@DeleteMapping("deleteuser/{uid}")
+	public String deleteUser(@PathVariable int uid) {
+		userService.deleteUser(uid);
+		return "Deleted";
+	}
+
 }

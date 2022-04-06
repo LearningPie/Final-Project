@@ -16,6 +16,7 @@ function Postanswer() {
   // }, []);
 
   let [ans, setAns] = useState("");
+  let queId = sessionStorage.getItem("questionId");
   let Answer = {
     answer: ans,
     user: { userId: sessionStorage.getItem("userId") },
@@ -24,12 +25,7 @@ function Postanswer() {
 
   const Submit = () => {
     axios
-      .post(
-        `http://localhost:8080/postAnswer/${sessionStorage.getItem(
-          "questionId"
-        )}`,
-        Answer
-      )
+      .post(`http://localhost:8080/postAnswer/${queId}`, Answer)
       .then((response) => {
         console.log(response.data);
       });

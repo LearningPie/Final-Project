@@ -12,7 +12,9 @@ export default function Dataset() {
   const getQuestions = async () => {
     let subject = sessionStorage.getItem("subject");
     const response = await axios.get(
-      `http://localhost:8080/getAllQuestionsBySubject/${subject}`
+      `http://localhost:8080/getAllQuestionsBySubject/${sessionStorage.getItem(
+        "subject"
+      )}`
     );
     setQuestions(response.data);
     setFilteredQuestions(response.data);

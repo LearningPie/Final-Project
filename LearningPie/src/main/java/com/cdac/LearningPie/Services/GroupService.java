@@ -12,4 +12,8 @@ public interface GroupService {
 	public List<GroupInfo> getAll();
 
 	public GroupInfo register(GroupInfo group);
+
+	public List<GroupInfo> getInfo(int groupId);
+
+	//public void joinGroupByUserId(int userId);
 }
