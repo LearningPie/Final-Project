@@ -1,12 +1,15 @@
 package com.cdac.LearningPie.Services;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cdac.LearningPie.entity.GroupInfo;
+import com.cdac.LearningPie.entity.Questions;
 import com.cdac.LearningPie.entity.User;
 import com.cdac.LearningPie.repository.GroupDao;
 
@@ -22,6 +25,7 @@ public class GroupServiceImplementation implements GroupService {
 	@Override
 	public List<GroupInfo> getAll() {
 		return groupDao.findAll();
+		
 	}
 	@Override
 	public GroupInfo register(GroupInfo group) {

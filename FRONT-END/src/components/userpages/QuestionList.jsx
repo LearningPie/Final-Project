@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import swal from "sweetalert2";
 import axios from "axios";
-import base_url from "../../api/bootapi";
+import base_url from "../api/bootapi";
 import Usernavbar from "./UserNav";
 import { useLocation } from "react-router-dom";
 import { Accordion } from "react-bootstrap";

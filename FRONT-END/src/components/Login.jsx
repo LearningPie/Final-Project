@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import base_url from "../api/bootapi.js";
+import base_url from "./api/bootapi.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert2";

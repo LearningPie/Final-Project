@@ -25,6 +25,10 @@ public interface UserService {
 
         public void joinGroupByUserId(int userId, int groupId);
 
+        public User findByUserId(int userId);
+        
+        public void updateUser(User u);
 
+		public void deleteAll(int[] array);
 		
 }

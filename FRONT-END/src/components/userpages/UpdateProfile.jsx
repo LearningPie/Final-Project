@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import swal from "sweetalert2";
 import axios from "axios";
 import UserNav from "./UserNav";
-import base_url from "../../api/bootapi.js";
+import base_url from "../api/bootapi.js";
 import Footer from "../layout/footer";
+import UploadProfilePic from "./UploadProfilePic";
+import Sidebar from "../Sidebar";
 
 function UpdateProfile() {
   //   useEffect(() => {
@@ -134,13 +136,13 @@ function UpdateProfile() {
   return (
     <div>
       <div className=" bgimg vh-100">
-        <div className="mb-5">
+        <div className="">
           <UserNav />
         </div>
-
-        <div className=" d-flex justify-content-center mt-5 bgimg">
-          <div className="m-auto w-50 pt-2 ps-5 pe-5 pb-2 mt-5 align-self-center text-white reg-form">
-            <h1 className="text-center display-4">Update Profile</h1>
+        <Sidebar></Sidebar>
+        <div className=" row justify-content-center">
+          <div className=" col-md-4 ">
+            <h1 className="text-center text-light">Update Profile</h1>
 
             <form className="row g-3 bg-light bg-opacity-50 mt-1">
               <div className="col-md-6">
@@ -253,9 +255,13 @@ function UpdateProfile() {
                 />
               </div>
             </form>
+            <div className="bg-light bg-opacity-50">
+              <UploadProfilePic></UploadProfilePic>
+            </div>
           </div>
         </div>
       </div>
+
       <Footer></Footer>
     </div>
   );

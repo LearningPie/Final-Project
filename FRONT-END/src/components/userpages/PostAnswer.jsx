@@ -4,6 +4,7 @@ import Usernavbar from "./UserNav";
 import Sidebar from "../Sidebar";
 import Footer from "../layout/footer";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Postanswer() {
   // useEffect(() => {
@@ -23,13 +24,21 @@ function Postanswer() {
   };
   let giveAnswer = (e) => setAns(e.target.value);
 
-  const Submit = () => {
+  const Submit = (Answer) => {
     axios
       .post(`http://localhost:8080/postAnswer/${queId}`, Answer)
       .then((response) => {
         console.log(response.data);
       });
     window.location("/viewQuestions");
+  };
+
+  const validate = () => {
+    if (ans.trim() === "") {
+      Swal.fire("All fields are required");
+    } else {
+      Submit(Answer);
+    }
   };
   return (
     <>
@@ -48,7 +57,7 @@ function Postanswer() {
               <h4 className="alert alert-info ">
                 {sessionStorage.getItem("question")}
               </h4>
-              <Form onSubmit={Submit}>
+              <Form onSubmit={validate}>
                 <Form.Group
                   className="mb-3 shadow"
                   controlId="exampleForm.ControlTextarea1"

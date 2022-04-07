@@ -24,7 +24,12 @@ import Datatable from "./components/Datatable";
 import QuestionBank from "./components/QuestionBank";
 import ViewGroup from "./components/ViewGroup";
 import PostJoinGroup from "./components/userpages/postJoinGroup";
-//import AboutUs from "./components/About Us";
+import PostAnswerInGroup from "./components/userpages/PostAnswerInGroup";
+import Forgot from "./components/userpages/Forgot";
+import UserListCard from "./components/layout/UserList";
+import GroupAdminHome from "./components/layout/GroupAdminHome";
+import GroupAdminViewQuestions from "./components/layout/GroupAdminViewQuestions";
+import ResourcesList from "./components/userpages/ResourcesList";
 
 function App() {
   return (
@@ -55,6 +60,9 @@ function App() {
         <Route path="/questionBank" element={<QuestionBank />} />
         <Route path="/viewGroup" element={<ViewGroup />} />
         <Route path="/postJoinGroup" element={<PostJoinGroup />} />
+        <Route path="/postAnswerInGroup" element={<PostAnswerInGroup />} />
+        <Route path="/forgotPassword" element={<Forgot />} />
+        <Route path="/resourcesList" element={<ResourcesList />} />
       </Routes>
 
       {/* Admin routes */}
@@ -62,6 +70,16 @@ function App() {
         <Route path="/admin" element={<AdminHome />} />
         <Route path="/userList" element={<UserList />} />
         <Route path="/adminViewQuestion" element={<AdminViewQuestion />} />
+        <Route path="/adminUserList" element={<UserListCard />} />
+      </Routes>
+
+      {/* Group Admin routes */}
+      <Routes>
+        <Route path="/adminHome" element={<GroupAdminHome />} />
+        <Route
+          path="/groupAdminViewQuestions"
+          element={<GroupAdminViewQuestions />}
+        />
       </Routes>
     </>
   );

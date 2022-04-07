@@ -21,6 +21,7 @@ public class User {
 	private boolean status = false;
 	private String securityAnswer;
 	private boolean isDeleted=false;
+	private String profilePicName;
 	
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
@@ -150,6 +151,14 @@ public class User {
 
 	public void setDeleted(boolean isDeleted) {
 		this.isDeleted = isDeleted;
+	}
+
+	public String getProfilePicName() {
+		return profilePicName;
+	}
+
+	public void setProfilePicName(String profilePicName) {
+		this.profilePicName = profilePicName;
 	}
 
 	

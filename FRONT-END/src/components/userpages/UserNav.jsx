@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Button, Container, Modal, Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import logo from "../Images/logo.png";
 import { useNavigate } from "react-router-dom";
 import UserAvatar from "./userAvatar";

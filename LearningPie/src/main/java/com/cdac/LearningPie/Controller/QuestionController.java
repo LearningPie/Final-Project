@@ -25,6 +25,10 @@ public class QuestionController {
     	return questionService.postQuestion(question);	 
      }
      
+     @PostMapping("postQuestionInGroup/{groupId}")
+     public Questions postQuestionInGroup(@RequestBody Questions question,@PathVariable int groupId) {
+    	 return questionService.postQuestionByUser(question,groupId);
+     }
      @GetMapping("/getAllQuestions")
      public List<Questions> getAll(){
     	return questionService.getAllQuestions();
@@ -44,6 +48,11 @@ public class QuestionController {
      @GetMapping("/deleteQuestion/{questionId}")
      public void deleteQuestion(@PathVariable int questionId) {
     	 questionService.deleteQuestionById(questionId);
+     }
+     
+     @PostMapping("/deleteQuestions")
+     public void deleteQuestionsArray(@RequestBody int[] array) {
+    	 questionService.deleteAll(array);
      }
     
 }

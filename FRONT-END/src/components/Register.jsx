@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert2";
-import base_url from "../api/bootapi.js";
+import base_url from "./api/bootapi.js";
 import axios from "axios";
 import Mainnavbar from "./layout/Mainnavbar.jsx";
 import "../css/bgimg.css";
@@ -91,6 +91,19 @@ function Register() {
         });
       }
     );
+  };
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const getFile = (e) => {
+    setSelectedFile(e.targe.value);
+  };
+  const upload = async (e) => {
+    const formdata = new FormData();
+    formdata.append("profilePic", selectedFile);
+    console.log(formdata);
+    let url = "http://localhost:8080/upload-profile-pic";
+    let status = await axios.post(url, formdata);
+    console.log(status);
   };
 
   let [ename, setEname] = useState();
@@ -420,6 +433,7 @@ function Register() {
                 </h6>
               </div>
             </form>
+            {/* onSubmit={upload}  onChange={getFile} */}
           </div>
         </div>
       </div>

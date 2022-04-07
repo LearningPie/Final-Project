@@ -19,7 +19,7 @@ public class QuestionServiceImplementation implements QuestionService {
 	}
 	@Override
 	public List<Questions> getAllQuestions() {
-		return questiondao.findAll();
+		return questiondao.getAllNotDeletedQuestions();
 	}
 	@Override
 	public List<Questions> getAllQuestionsBySubject(String subject) {
@@ -33,6 +33,19 @@ public class QuestionServiceImplementation implements QuestionService {
 	@Override
 	public void deleteQuestionById(int questionId) {
 		questiondao.deleteQuestion(questionId);
+	}
+	@Override
+	public void deleteAll(int[] array) {
+		for( int questionId:array)
+		{
+			questiondao.deleteQuestion(questionId);
+		}
+	}
+	@Override
+	public Questions postQuestionByUser(Questions question,int groupId) {
+		questiondao.save(question);
+		questiondao.changeGroupId(groupId,question.getQuestionId());
+		return null;
 	}
 
 	

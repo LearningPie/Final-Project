@@ -23,6 +23,7 @@ public interface UserDao extends JpaRepository<User, Integer>  {
 	
 	public User findByUserName(String userName);
 	
+	public User findById(int userId);
 	@Modifying
 	@Transactional
     @Query(value="update user set name=:n, email=:e, phone_no=:p, password=:pa where user_name=:un", nativeQuery = true)
@@ -46,4 +47,14 @@ public interface UserDao extends JpaRepository<User, Integer>  {
 
 //    @Query(value="select user_id from ")
 //	public void existingMember(int userId, int groupId);
+    
+    @Modifying
+    @Transactional
+    @Query(value="update user set is_deleted=true where user_id=:u",nativeQuery=true)
+    public void deleteUser(@Param("u") int userId);
+    
+//	get all register users
+	@Query(value="select * from user where is_deleted != true", nativeQuery = true)
+	public List<User> getAllUsersNotDeleted();
+
 }

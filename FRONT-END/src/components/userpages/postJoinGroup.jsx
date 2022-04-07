@@ -7,10 +7,19 @@ import Footer from "../layout/footer";
 import Sidebar from "../Sidebar";
 import { Form, Row, Tabs } from "react-bootstrap";
 import { Tab } from "bootstrap";
+import ReuseableDataTable from "./ReuseableDataTable";
+import ReuseableQuestionDataTable from "./ReuseableQuestionDataTable";
+import Gaurav from "../layout/ProfilePics/Gaurav.jpeg";
+import Questions from "../layout/ProfilePics/Questions.pdf";
+import ResourcesList from "./ResourcesList";
 
 export default function PostJoinGroup() {
   const [groupInfoArray, setGroupInfoArray] = useState([]);
   const [questionsArray, setQuestionsArray] = useState([]);
+  const [usersArray, setUsersArray] = useState([]);
+  const [filesArray, setFilesArray] = useState([]);
+
+  let s = "./Uploaded/Pdf/" + "6-Project Idea.png";
   useEffect(() => {
     document.title = "Home";
     // if (sessionStorage.getItem("userSession") == null) {
@@ -34,26 +43,33 @@ export default function PostJoinGroup() {
   let setSubject = (e) => setSub(e.target.value);
 
   const submit = (Question) => {
-    axios.post(`${base_url}/postQuestion`, Question).then(
-      (response) => {
-        console.log(response.data);
-        swal.fire({
-          icon: "Success",
-          title: "Congratulations",
-          text: "Your question is posted",
-        });
+    axios
+      .post(
+        `http://localhost:8080/postQuestionInGroup/${sessionStorage.getItem(
+          "joingroupId"
+        )}`,
+        Question
+      )
+      .then(
+        (response) => {
+          console.log(response.data);
+          swal.fire({
+            icon: "Success",
+            title: "Congratulations",
+            text: "Your question is posted",
+          });
 
-        window.location = "/user";
-      },
-      (error) => {
-        console.log(error);
-        swal.fire({
-          icon: "error",
-          title: "Oh no!",
-          text: "Server is down",
-        });
-      }
-    );
+          window.location = "/user";
+        },
+        (error) => {
+          console.log(error);
+          swal.fire({
+            icon: "error",
+            title: "Oh no!",
+            text: "Server is down",
+          });
+        }
+      );
   };
 
   let [eque, setEque] = useState("");
@@ -74,8 +90,29 @@ export default function PostJoinGroup() {
         "joingroupId"
       )}`
     );
-    setQuestionsArray(response.data[0].question);
+    let validQuestions = [];
+    response.data[0].question.map((item) => {
+      if (item.deleted == false) {
+        validQuestions.push(item);
+      }
+    });
+    let validUsers = [];
+    response.data[0].userList.map((item) => {
+      if (item.deleted == false) {
+        validUsers.push(item);
+      }
+    });
+    let pdfArray = [];
+    response.data[0].file.map((item) => {
+      let s = "./Uploaded/Pdf/" + item.fileName;
+      pdfArray.unshift(s);
+    });
+
+    // setQuestionsArray(response.data[0].question);
+    setUsersArray(validUsers);
+    setQuestionsArray(validQuestions);
     setGroupInfoArray(response.data);
+    setFilesArray(pdfArray);
     console.log(response.data);
     console.log(groupInfoArray[0].question);
     //setQuestionsArray(groupInfoArray[0].question);
@@ -88,7 +125,6 @@ export default function PostJoinGroup() {
       <UserNav />
       <Sidebar />
       <div className="container">
-        {" "}
         <Tabs
           defaultActiveKey="home"
           transition={false}
@@ -96,14 +132,14 @@ export default function PostJoinGroup() {
           className="mb-3"
         >
           <Tab eventKey="home" title="Participants">
-            <div className="bg-dark fluid-container mb-5">
+            {/* <div className="bg-dark fluid-container mb-5">
               <div className="row justify-content-center">
                 <div className="col-md-12 bg-light h-100">
                   {/* <div className="row">
                     <div className="col-md-12 text-center fw-bold alert alert-warning">
                       Participants
                     </div>
-                  </div> */}
+                  </div> 
                   <div className="row h-100">
                     <div
                       className="col-md-12 border-end "
@@ -126,10 +162,19 @@ export default function PostJoinGroup() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+            {usersArray.length > 0 ? (
+              <ReuseableDataTable list={usersArray}></ReuseableDataTable>
+            ) : (
+              // console.log(item.userList)
+
+              //   <UserComp userName={item.userName}></UserComp>;
+              <h4 style={{ height: "80vh" }}>No Participants</h4>
+            )}
+            {console.log(groupInfoArray)}
           </Tab>
           <Tab eventKey="profile" title="View Questions">
-            <div className="container">
+            {/* <div className="container">
               <div className="row">
                 <div
                   className="col-md-12 bg-warning"
@@ -148,7 +193,14 @@ export default function PostJoinGroup() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+            {questionsArray.length > 0 ? (
+              <ReuseableQuestionDataTable
+                list={questionsArray}
+              ></ReuseableQuestionDataTable>
+            ) : (
+              <h4 style={{ height: "80vh" }}>No Questions Found</h4>
+            )}
           </Tab>
           <Tab eventKey="contact" title="Post Question">
             <div>
@@ -212,9 +264,47 @@ export default function PostJoinGroup() {
               </Row>
             </div>
           </Tab>
-          <Tab eventKey="contact" title="Post Answer">
-            {/* <Sonnet /> */}
+          <Tab
+            eventKey="resources"
+            title="Resources"
+            // style={{ height: "80vh" }}
+          >
+            {/* <div style={{ height: "100vh" }}>
+              <a href={Gaurav}>Gaurav</a>
+              <br />
+              <a href={Questions}>View Pdf</a>
+              <br />
+              <a href={Questions} download>
+                Download Pdf
+              </a>
+              <br />
+            </div> */}
+            <div>
+              {/* <a href={s}>View Pdf</a>
+              <a href={s} download>
+                Download
+              </a> */}
+              {filesArray.length > 0 ? (
+                //<a href={item}></a>
+                <ResourcesList list={filesArray}></ResourcesList>
+              ) : (
+                // console.log(item)
+
+                // alert(item.fileName);
+                //let s = "./Uploaded/Pdf/" + item.fileName;
+                //alert(s);
+                //   const Index = {
+                //   image: require(`../Uploaded/Pdf/6-Project Idea.png`),
+                //   };
+                //   <img src={Index.image} alt="image not found" />;
+
+                <h4>No Resources</h4>
+              )}
+            </div>
+            {/* <a href="./Uploaded/Pdf/6-Project Idea.png">View Pdf</a> */}
+            {/* {console.log(filesArray)} */}
           </Tab>
+          {/* <Tab eventKey="links" title="Links"></Tab> */}
         </Tabs>
       </div>
 

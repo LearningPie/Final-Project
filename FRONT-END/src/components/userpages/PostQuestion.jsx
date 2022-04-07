@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Dropdown, Form, Row } from "react-bootstrap";
 import swal from "sweetalert2";
 import UserNav from "./UserNav";
-import base_url from "../../api/bootapi.js";
+import base_url from "../api/bootapi.js";
 import Sidebar from "../Sidebar";
 import Footer from "../layout/footer";
 import { Link } from "react-router-dom";

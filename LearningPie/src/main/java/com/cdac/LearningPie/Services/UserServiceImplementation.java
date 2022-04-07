@@ -44,7 +44,7 @@ public class UserServiceImplementation implements UserService {
 	
 	@Override
 	public List<User> getAllUsers() {
-		return userDao.findAll();
+		return userDao.getAllUsersNotDeleted();
 	}
 	
 	@Override
@@ -54,23 +54,37 @@ public class UserServiceImplementation implements UserService {
 	
 	@Override
 	public void deleteUser(int userId) {
-		User user= userDao.getById(userId);
-		userDao.delete(user);
+		userDao.deleteUser(userId);
 	}
 
 	@Override
 	public void joinGroupByUserId(int userId,int groupId) {
 		if (isExistingMember(userId, groupId) == null) {
-			return;
+			userDao.joinGroup(userId, groupId);
 		}
-
-		userDao.joinGroup(userId, groupId);
-		
 	}
 	
 	public Object isExistingMember(int userId,int groupId) {
 		return userDao.existingMember(userId,groupId);
 	}
 
+	public User findByUserId(int userId) {
+		return userDao.findById(userId);
+	}
+
+	@Override
+	public void updateUser(User u) {
+		userDao.save(u);
+		
+	}
+
+	@Override
+	public void deleteAll(int[] array) {
+		for(int userId:array)
+		{
+			userDao.deleteUser(userId);
+		}
+		
+	}
 	
 }

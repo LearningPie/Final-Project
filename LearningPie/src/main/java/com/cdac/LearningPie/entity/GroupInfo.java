@@ -25,7 +25,6 @@ public class GroupInfo {
 	private String groupDesc;
 	
 	@OneToMany(mappedBy = "group")
-	@JsonIgnore
 	private List<Files> file;
 	
 	

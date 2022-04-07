@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import base_url from "../../api/bootapi";
+import base_url from "../api/bootapi";
 import UserNav from "./UserNav";
 import Footer from "../layout/footer";
 import Sidebar from "../Sidebar";

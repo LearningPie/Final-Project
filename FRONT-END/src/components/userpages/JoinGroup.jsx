@@ -7,6 +7,7 @@ import Sidebar from "../Sidebar";
 import Postanswer from "./PostAnswer";
 import { Popover } from "bootstrap";
 import ViewGroup from "../ViewGroup";
+import ReuseableListDataTable from "./ReuseableListDataTable";
 
 function JoinGroup() {
   let [array, setArray] = useState([]);
@@ -38,9 +39,12 @@ function JoinGroup() {
                       groupName={item.groupName}
                       desc={item.groupDesc}
                       groupId={item.groupId}
+                      groupPass={item.groupPassword}
+                      admin={item.admin}
                     ></ViewGroup>
                   </div>
                 ))}
+                {/* <ReuseableListDataTable list={array}></ReuseableListDataTable> */}
               </div>
             </div>
           </div>
