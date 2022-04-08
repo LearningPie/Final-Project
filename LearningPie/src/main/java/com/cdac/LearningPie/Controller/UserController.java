@@ -69,7 +69,7 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public List<User> loginUser(@RequestBody User user) {
+	public User loginUser(@RequestBody User user) {
 		return userService.isExistingUser(user.getUserName(), user.getPassword());
 	}
 

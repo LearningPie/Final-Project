@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import base_url from "./api/bootapi.js";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert2";
@@ -21,7 +20,7 @@ export default function Login() {
 
   //Login check method
   const checkLogin = (data) => {
-    axios.post(`${base_url}/login`, data).then(
+    axios.post(`http://localhost:8080/login`, data).then(
       (response) => {
         if (response.data.length == 0) {
           swal.fire({
@@ -30,12 +29,12 @@ export default function Login() {
             text: "Wrong Credentials Entered or you have not registered yet.",
           });
         } else {
-          if (response.data[0].status == true) {
+          if (response.data.status == true) {
             window.location = "/admin";
             //sessionStorage.setItem("admin", "admin");
-            sessionStorage.setItem("adminId", response.data[0].userId);
+            sessionStorage.setItem("adminId", response.data.userId);
           } else {
-            sessionStorage.setItem("name", response.data[0].name);
+            sessionStorage.setItem("name", response.data.name);
             //sessionStorege.setItem("userId", response.data[0].status);
             // const userdata = {
             //   name: response.data[0].name,
@@ -44,8 +43,8 @@ export default function Login() {
             //   phoneNo: response.data[0].phoneNo,
             // };
             // sessionStorage.setItem("userdata", JSON.stringify(userdata));
-            sessionStorage.setItem("userSession", response.data[0].userName);
-            sessionStorage.setItem("userId", response.data[0].userId);
+            sessionStorage.setItem("userSession", response.data.userName);
+            sessionStorage.setItem("userId", response.data.userId);
             //localStorage.setItem("user", response.data[0].userName);
             window.location = "/user";
           }

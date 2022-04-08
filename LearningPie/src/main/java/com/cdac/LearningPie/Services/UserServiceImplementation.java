@@ -3,6 +3,9 @@ package com.cdac.LearningPie.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cdac.LearningPie.dto.UserDto;
@@ -17,18 +20,27 @@ public class UserServiceImplementation implements UserService {
     private UserDao userDao;
 	@Autowired
 	private EmailService emailService;
+
 	
 	@Override
 	public void registerUser(User user) {
+	    user.setPassword(PasswordEncryption.bcryptPassword(user.getPassword()));
 		userDao.save(user);	
-		emailService.sendEmailForNewRegistration(user.getEmail());
+		//emailService.sendEmailForNewRegistration(user.getEmail());
 	}
 
 	@Override
-	public List<User> isExistingUser(String userName, String password) {
-		List<User> listOfUser=userDao.findByUserNameAndPassword(userName,password);
+	public User isExistingUser(String userName, String password) {
+		User user=userDao.findByUserName(userName);
+		System.out.println(user);
+		System.out.println(PasswordEncryption.bcryptPassword(password));
+		BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+		if(	passwordEncoder.matches(password, user.getPassword()))
+		{
+			return user;
+		}
+		return null;
 		
-		return listOfUser;
 	}
     
 	@Override

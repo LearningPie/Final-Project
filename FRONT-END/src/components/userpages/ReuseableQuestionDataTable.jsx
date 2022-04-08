@@ -23,7 +23,7 @@ export default function Dataset(prop) {
   const column = [
     {
       // name: <h5>{prop.columnName}</h5>,
-      width: "800px",
+      width: "1200px",
 
       selector: (row) => <QuestionComp question={row}></QuestionComp>,
 
