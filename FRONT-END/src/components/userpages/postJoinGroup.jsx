@@ -108,7 +108,7 @@ export default function PostJoinGroup() {
       pdfArray.unshift(s);
     });
 
-    // setQuestionsArray(response.data[0].question);
+    //setQuestionsArray(response.data[0].question);
     setUsersArray(validUsers);
     setQuestionsArray(validQuestions);
     setGroupInfoArray(response.data);
@@ -245,7 +245,14 @@ export default function PostJoinGroup() {
                             <option value="ADS">ADS</option>
                             <option value="Reactjs">Reactjs</option>
                             <option value="Database">Database</option>
-                            <option value="JavaScript">JavaScript</option>
+                            <option value="JS">JavaScript</option>
+                            <option value="Adv Java">Java</option>
+                            <option value="OS">OS</option>
+                            <option value="WPT">WPT</option>
+                            <option value="C++">C++</option>
+                            <option value="Dot Net">Dot Net</option>
+                            <option value="Python">Python</option>
+                            <option value="Swift">Swift</option>
                           </select>
                           <div class="invalid-feedback fs-6 fw-bold">{}</div>
                         </div>

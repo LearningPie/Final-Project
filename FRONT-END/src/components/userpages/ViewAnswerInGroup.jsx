@@ -38,6 +38,13 @@ export default function ViewAnswerInGroup(prop) {
 
       sortable: true,
     },
+    {
+      name: <h4>User</h4>,
+
+      selector: (row) => <h6>{row.user.userName}</h6>,
+
+      sortable: true,
+    },
   ];
   return (
     <div>
@@ -56,7 +63,7 @@ export default function ViewAnswerInGroup(prop) {
           fixedHeaderScrollHeight="144vh"
           //selectableRows
           selectableRowsHighlight
-          //highlightOnHover
+          highlightOnHover
           subHeader
           subHeaderComponent={
             <input

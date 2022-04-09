@@ -20,6 +20,7 @@ public class QuestionServiceImplementation implements QuestionService {
 	@Override
 	public List<Questions> getAllQuestions() {
 		return questiondao.getAllNotDeletedQuestions();
+		
 	}
 	@Override
 	public List<Questions> getAllQuestionsBySubject(String subject) {

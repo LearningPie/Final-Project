@@ -172,7 +172,7 @@ export default function AdminViewQuestions() {
   return (
     <>
       <AdminNav />
-      <div className="mt-5" style={{ height: "80vh" }}>
+      <div className="mt-5 overflow-auto" style={{ height: "100vh" }}>
         <DataTable
           title="Questions"
           columns={column}

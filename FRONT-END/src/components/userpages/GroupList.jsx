@@ -34,11 +34,35 @@ function UserJoinedGroupsList() {
             >
               <div>
                 {array.map((item) => (
-                  <div>
-                    <ViewGroup
-                      groupName={item.groupName}
-                      desc={item.groupDesc}
-                    ></ViewGroup>
+                  <div className="w-100 my-2" style={{ width: "1000px" }}>
+                    {console.log(item)}
+                    <div
+                      className=" row justify-content-center align-items-center alert alert-primary"
+                      style={{ borderRadius: "20px" }}
+                    >
+                      <div className="col-md-2 justify-content-center align-items-center d-flex">
+                        {/* <UserAvatar userName={groupInfo.groupName} /> */}
+                      </div>
+
+                      <div className="col-md-10 ">
+                        <h5 className="text-align-left">{item.groupName}</h5>
+                        <div>{item.groupDesc}</div>
+                        <div className="text-align-right d-flex justify-content-end">
+                          <button
+                            className="btn btn-warning"
+                            onClick={() => {
+                              sessionStorage.setItem(
+                                "joingroupId",
+                                item.groupId
+                              );
+                              window.location = "/postJoinGroup";
+                            }}
+                          >
+                            Go to group
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 ))}
                 {/* <ReuseableListDataTable list={array}></ReuseableListDataTable> */}
