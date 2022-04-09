@@ -21,18 +21,16 @@ public class AnswerController {
       @Autowired
       AnswerService answerService;
       
-      @PostMapping("/postAnswer/{questionId}")
-      public void postAnswers(@RequestBody Answers answer,@PathVariable int questionId) {
-    	  answerService.postAnswer(answer,questionId);
+      @PostMapping("/postAnswer")
+      public void postAnswers(@RequestBody AnswerDto answerDto) {
+    	  answerService.postAnswer(answerDto.getAnswer(),answerDto.getQuestionId(),answerDto.getUserId());
     	  
       }
       
-//      @PostMapping("/postAnswer")
-//      public void postAnswers(@RequestBody Answers answer) {
-//    	  answerService.postAnswer(answer);
-//    	  
-//      }
-      
+      @GetMapping("/getAnswersByQuestionsId/{questionId}")
+      public List<Answers> getAllAnswersByQuestionId(@PathVariable int questionId){
+    	return  answerService.getAllAnswers(questionId);
+      }
       @GetMapping("/getAll")
       public List<Answers> getAllQuestionsAndAnswers() {
     	  return answerService.getAll();

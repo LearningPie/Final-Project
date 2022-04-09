@@ -12,11 +12,20 @@ public class EmailService {
 	 private JavaMailSender emailSender;
 
 	 public void sendEmailForNewRegistration(String email) {
-		SimpleMailMessage message = new SimpleMailMessage(); 
+	   SimpleMailMessage message = new SimpleMailMessage(); 
        message.setFrom("noreply@abc.com");
        message.setTo(email); 
        message.setSubject("Thank you for Registering with Learning Pie!"); 
        message.setText("Thank you for Registering with Learning Pie!");
        emailSender.send(message);
+	 }
+	 
+	 public void sendOtpToMail(String email,String otp) {
+		 SimpleMailMessage message = new SimpleMailMessage(); 
+	       message.setFrom("noreply@abc.com");
+	       message.setTo(email); 
+	       message.setSubject("Forgot Password"); 
+	       message.setText("Your One Time Password is : "+otp);
+	       emailSender.send(message);
 	 }
 }

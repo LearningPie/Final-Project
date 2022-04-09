@@ -10,13 +10,17 @@ function Forget() {
   }, []);
 
   const [usere, setusere] = useState("");
-  const [userq, setuserq] = useState("");
+  const [usero, setUsero] = useState("");
   const [usera, setusera] = useState("");
   const [userpwd, setuserpwd] = useState("");
   const [userconpwd, setuserconpwd] = useState("");
 
+  const data = {
+    email: usere,
+  };
+
   const getEmail = (data) => {
-    axios.post(`${base_url}/findbyemail`, data).then(
+    axios.post(`${base_url}/verifyEmail`, data).then(
       (response) => {
         console.log(response.data);
         if (response.data.length == 0) {
@@ -47,51 +51,47 @@ function Forget() {
     );
   };
 
-  const ans = {
-    email: usere,
-    securityQues: userq,
-    securityAns: usera,
-  };
   const pass = {
     email: usere,
     password: userpwd,
+    otp: usero,
   };
-  const getAnswer = (data) => {
-    axios.post(`${base_url}/forget`, data).then(
-      (response) => {
-        console.log(response);
-        if (response.data.length == 0) {
-          swal.fire({
-            title: "Oh NO!",
-            text: "Your answer does not match the one you have entered during registration",
-            icon: "error",
-          });
-          document.getElementById("securityAns").value = "";
-          document.getElementById("password").value = "";
-          document.getElementById("conpassword").value = "";
-        } else {
-          setNew(pass);
-          clearFields();
-          clearError();
-          swal
-            .fire({
-              icon: "success",
-              title: "Finally!!!",
-              text: "You have reset the password.Keep it safe and reuser it for login",
-            })
-            .then(function () {
-              window.location = "/";
-            });
-        }
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  };
+  // const updatePass = (pass) => {
+  //   axios.put(`${base_url}/updatepassword`, pass).then(
+  //     (response) => {
+  //       console.log(response);
+  //       if (response.data.length == 0) {
+  //         swal.fire({
+  //           title: "Oh NO!",
+  //           text: "Your answer does not match the one you have entered during registration",
+  //           icon: "error",
+  //         });
+  //         document.getElementById("securityAns").value = "";
+  //         document.getElementById("password").value = "";
+  //         document.getElementById("conpassword").value = "";
+  //       } else {
+  //         setNew(pass);
+  //         clearFields();
+  //         clearError();
+  //         swal
+  //           .fire({
+  //             icon: "success",
+  //             title: "Finally!!!",
+  //             text: "You have reset the password.Keep it safe and reuser it for login",
+  //           })
+  //           .then(function () {
+  //             window.location = "/";
+  //           });
+  //       }
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // };
 
-  const setNew = (data) => {
-    axios.put(`${base_url}/updatepassword`, data).then(
+  const setNew = (update) => {
+    axios.put(`${base_url}/updatepassword`, update).then(
       (response) => {
         console.log(response);
       },
@@ -102,16 +102,13 @@ function Forget() {
   };
   const clearFields = () => {
     document.getElementById("email").value = "";
-    document.getElementById("securityQues").value = "";
-    document.getElementById("securityAns").value = "";
     document.getElementById("password").value = "";
     document.getElementById("conpassword").value = "";
   };
   const clearError = () => {
     document.getElementById("email").classList.remove("is-invalid");
     setEemail("");
-    document.getElementById("securityAns").classList.remove("is-invalid");
-    setEans("");
+
     document.getElementById("password").classList.remove("is-invalid");
     setEpassword("");
     document.getElementById("conpassword").classList.remove("is-invalid");
@@ -135,42 +132,44 @@ function Forget() {
       setEemail("Please enter an valid email id");
       setusere("");
     } else {
-      getEmail({ email: usere });
+      getEmail(data);
     }
     e.preventDefault();
   };
   const validate = (e) => {
-    if (usera === "" || userpwd === "" || userconpwd === "") {
+    if (usero === "" || userpwd === "" || userconpwd === "") {
       swal.fire("All fields are required");
-    } else if (usera.length <= 3 || usera.length > 40) {
+    } else if (usero.length <= 0 || usero.length > 5) {
       document.getElementById("securityAns").classList.add("is-invalid");
-      setEans("Enter Answer length above 2 or less than 40");
-    } else if (
-      userpwd == "" ||
-      userpwd.search(/^(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{8,20}$/) <
-        0 ||
-      userpwd.length < 6
-    ) {
-      document.getElementById("password").classList.add("is-invalid");
-      setEpassword(
-        "Enter a password with atleast 8 characters and must include 1 capital, 1 number and 1 special character"
-      );
-    } else if (userpwd != userconpwd) {
-      document.getElementById("conpassword").classList.add("is-invalid");
-      setEconpassword("Password mismatch.");
-    } else {
-      getAnswer(ans);
+      setEans("Enter OTP length above 0 or less than 5");
+    }
+    // } else if (
+    //   userpwd == "" ||
+    //   userpwd.search(/^(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{8,20}$/) <
+    //     0 ||
+    //   userpwd.length < 10
+    // ) {
+    //   document.getElementById("password").classList.add("is-invalid");
+    //   setEpassword(
+    //     "Enter a password with atleast 8 characters and must include 1 capital, 1 number and 1 special character"
+    //   );
+    // } else if (userpwd != userconpwd) {
+    //   document.getElementById("conpassword").classList.add("is-invalid");
+    //   setEconpassword("Password mismatch.");
+    // }
+    else {
+      setNew(pass);
       e.preventDefault();
     }
   };
   return (
     <div>
-      <div className="container vh-100" style={{ width: "40%" }}>
+      <div className="container " style={{ width: "40%" }}>
         <div className="row d-flex justify-content-center">
           <div className="col-md-12">
             <div className=" z-depth-3 mt-3">
               <div
-                className="col-sm-12 rounded-right bg-dark text-white p-4 mt-2  m-auto"
+                className="col-sm-12 col-md-10 rounded-right bg-dark text-white p-2 mt-2  m-auto"
                 style={{
                   backgroundColor: "white",
                   opacity: 0.8,
@@ -216,35 +215,19 @@ function Forget() {
                 </div>
 
                 <div className="row mb-4 ms-5">
-                  <div className="col-sm-12">
-                    <h4 className="font-weight-bold">Security Question : </h4>
-                    <input
-                      className="form-control text-white"
-                      type="text"
-                      style={{ background: "transparent" }}
-                      id="securityQues"
-                      name="securityQues"
-                      value={userq}
-                      onFocus={clearError}
-                      disabled
-                    />
-                  </div>
-                </div>
-
-                <div className="row mb-4 ms-5">
                   <div className="col-sm-6">
-                    <h4 className="font-weight-bold">Answer : </h4>
+                    <h4 className="font-weight-bold">Enter OTP : </h4>
                     <input
-                      type="text"
-                      placeholder="Enter your Answer Here....."
+                      type="number"
+                      placeholder="Enter your OTP"
                       style={{ background: "transparent" }}
                       className="form-control text-white"
                       id="securityAns"
                       name="securityAns"
-                      value={usera}
+                      value={usero}
                       onFocus={clearError}
                       onChange={(e) => {
-                        setusera(e.target.value);
+                        setUsero(e.target.value);
                       }}
                     />
                     <div className="invalid-feedback fs-6 fw-bold">{eans}</div>

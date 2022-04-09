@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.LearningPie.Services.GroupService;
+import com.cdac.LearningPie.dto.GroupInfoDto;
 import com.cdac.LearningPie.dto.ProfilePicDetails;
 import com.cdac.LearningPie.dto.UploadPdfDetails;
 import com.cdac.LearningPie.entity.GroupInfo;
@@ -34,6 +35,11 @@ public class GroupController{
 		return groupService.getAll();
 	}
 	
+	@GetMapping("/getAllGroupInfoByUserId/{userId}")
+	public List<GroupInfoDto> getAllGroupsInfoByUserId(@PathVariable int userId){
+		return groupService.getGroupInfo(userId);
+		
+	}
 	@GetMapping("/getGroupInfo/{groupId}")
 	public List<GroupInfo> getGroupInfo(@PathVariable int groupId) {
 		return groupService.getInfo(groupId);

@@ -39,7 +39,6 @@ export default function Users() {
     );
   };
 
-  const columns = users[0] && Object.keys(users[0]);
   return (
     <div>
       <div className="mb-5">

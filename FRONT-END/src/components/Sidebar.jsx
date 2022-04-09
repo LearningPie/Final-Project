@@ -1,14 +1,4 @@
-import {
-  Button,
-  Carousel,
-  FormControl,
-  Image,
-  InputGroup,
-  Row,
-  Offcanvas,
-  Nav,
-  NavDropdown,
-} from "react-bootstrap";
+import { Button, Offcanvas, Nav } from "react-bootstrap";
 import { useState } from "react";
 import Learning from "../components/Images/learning.png";
 
@@ -53,22 +43,22 @@ export default function Sidebar() {
               </Nav.Link>
             </div>
             <div className="col-md-12  border-bottom">
-              <Nav.Link href="#action2" className="text-light">
-                Link
+              <Nav.Link href="/joinGroup" className="text-light">
+                Explore Groups
               </Nav.Link>
             </div>
-            <div className="col-md-12  border-bottom">
+            {/* <div className="col-md-12  border-bottom">
               <Nav.Link href="#action2" className="text-light">
                 Resource
               </Nav.Link>
-            </div>
+            </div> */}
             <div className="col-md-12  border-bottom">
               <Nav.Link href="/dashboard" className="text-light">
                 Dashboard
               </Nav.Link>
             </div>
             <div className="col-md-12  border-bottom">
-              <Nav.Link href="/joinGroup" className="text-light">
+              <Nav.Link href="/userJoinedGroupList" className="text-light">
                 Go to group
               </Nav.Link>
             </div>

@@ -30,6 +30,8 @@ import UserListCard from "./components/layout/UserList";
 import GroupAdminHome from "./components/layout/GroupAdminHome";
 import GroupAdminViewQuestions from "./components/layout/GroupAdminViewQuestions";
 import ResourcesList from "./components/userpages/ResourcesList";
+import ViewAnswerInGroup from "./components/userpages/ViewAnswerInGroup";
+import UserJoinedGroupList from "./components/userpages/GroupList";
 
 function App() {
   return (
@@ -63,6 +65,8 @@ function App() {
         <Route path="/postAnswerInGroup" element={<PostAnswerInGroup />} />
         <Route path="/forgotPassword" element={<Forgot />} />
         <Route path="/resourcesList" element={<ResourcesList />} />
+        <Route path="/viewAnswer" element={<ViewAnswerInGroup />} />
+        <Route path="/userJoinedGroupList" element={<UserJoinedGroupList />} />
       </Routes>
 
       {/* Admin routes */}
@@ -70,7 +74,6 @@ function App() {
         <Route path="/admin" element={<AdminHome />} />
         <Route path="/userList" element={<UserList />} />
         <Route path="/adminViewQuestion" element={<AdminViewQuestion />} />
-        <Route path="/adminUserList" element={<UserListCard />} />
       </Routes>
 
       {/* Group Admin routes */}

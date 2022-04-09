@@ -15,6 +15,9 @@ public interface GroupDao extends JpaRepository<GroupInfo, Integer> {
 
 	@Query(value="select * from group_info where group_id=:g", nativeQuery = true)
 	public List<GroupInfo> findByGroupId(@Param("g") int groupId);
+
+	@Query(value="select * from group_info_user_list inner join group_info on group_info_user_list.group_list_group_id=group_info.group_id where user_list_user_id=:u",nativeQuery = true)
+	public List<GroupInfo> findAllGroupsInfoByUserId(@Param("u") int userId);
 	
 	
 	

@@ -1,28 +1,27 @@
 package com.cdac.LearningPie.dto;
 
 public class AnswerDto {
-       private String answer;
-       private String question;
-       private String userName;
+	private String answer;
+	private int questionId;
+	private int userId;
+
 	public String getAnswer() {
 		return answer;
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public String getQuestion() {
-		return question;
+	public int getQuestionId() {
+		return questionId;
 	}
-	public void setQuestion(String question) {
-		this.question = question;
+    public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
-	public String getUserName() {
-		return userName;
+	public int getUserId() {
+		return userId;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-		
-	
 }

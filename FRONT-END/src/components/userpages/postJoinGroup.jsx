@@ -279,7 +279,7 @@ export default function PostJoinGroup() {
               </a>
               <br />
             </div> */}
-            <div>
+            <div className="overflow-auto" style={{ height: "160vh" }}>
               {/* <a href={s}>View Pdf</a>
               <a href={s} download>
                 Download

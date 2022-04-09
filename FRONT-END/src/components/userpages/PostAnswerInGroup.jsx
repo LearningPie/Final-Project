@@ -20,16 +20,15 @@ function Postanswer() {
   let queId = sessionStorage.getItem("questionId");
   let Answer = {
     answer: ans,
-    user: { userId: sessionStorage.getItem("userId") },
+    questionId: queId,
+    userId: sessionStorage.getItem("userId"),
   };
   let giveAnswer = (e) => setAns(e.target.value);
 
   const Submit = (Answer) => {
-    axios
-      .post(`http://localhost:8080/postAnswer/${queId}`, Answer)
-      .then((response) => {
-        console.log(response.data);
-      });
+    axios.post(`http://localhost:8080/postAnswer`, Answer).then((response) => {
+      console.log(response.data);
+    });
     window.location("/viewQuestions");
   };
 

@@ -1,29 +1,29 @@
 import { Button } from "bootstrap";
 import { Card } from "react-bootstrap";
+import pdf from "../Images/pdf-file.png";
+import download from "../Images/download.png";
+import view from "../Images/view.png";
 
 export default function Resources({ link }) {
+  const fileName = link.split("/");
+  const file = fileName.pop().split("-");
+
   return (
-    <div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <div className="d-flex justify-content-between">
-            {" "}
-            <a href={link} className="btn btn-primary">
-              View Pdf
-            </a>
-            <a href={link} className="btn btn-warning" download>
-              Download Pdf
-            </a>
-          </div>
-        </Card.Body>
-      </Card>
-      {console.log(link)}
+    <div className="row align-items-center shadow-lg mb-5 ">
+      <div className="col-md-1">
+        <img src={pdf} width="80px" />
+      </div>
+      <div className="col-md-9 fw-bold">{file[1]}</div>
+      <div className="col-md-1">
+        <a href={link} target="_blank" className="btn ">
+          <img src={view} width="40px" />
+        </a>
+      </div>
+      <div className="col-md-1">
+        <a href={link} className="btn " download>
+          <img src={download} width="40px" />
+        </a>
+      </div>
     </div>
   );
 }

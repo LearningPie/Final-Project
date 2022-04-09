@@ -25,5 +25,8 @@ public interface AnswersDao extends JpaRepository<Answers, Integer>{
 //	public List<Answers> getAllQuestionsAndAnswers();
 	
 	public List<Answers> findAll();
+
+	@Query(value="select * from answers where question_id=:q",nativeQuery = true)
+	public List<Answers> findAllByQuestionId(@Param("q") int questionId);
            
 }

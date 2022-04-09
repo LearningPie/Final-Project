@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cdac.LearningPie.dto.GroupInfoDto;
 import com.cdac.LearningPie.entity.GroupInfo;
 import com.cdac.LearningPie.entity.Questions;
 import com.cdac.LearningPie.entity.User;
@@ -35,6 +36,21 @@ public class GroupServiceImplementation implements GroupService {
 	@Override
 	public List<GroupInfo> getInfo(int groupId) {
 		return groupDao.findByGroupId(groupId);
+	}
+
+	@Override
+	public List<GroupInfoDto> getGroupInfo(int userId) {
+		List<GroupInfo> listOfGroups=groupDao.findAllGroupsInfoByUserId(userId);
+		List<GroupInfoDto> listOfGroupDto=new ArrayList<GroupInfoDto>();
+		for(int i=0;i<listOfGroups.size();i++) {
+			GroupInfoDto dto=new GroupInfoDto();
+			dto.setGroupId(listOfGroups.get(i).getGroupId());
+			dto.setGroupName(listOfGroups.get(i).getGroupName());
+        	dto.setGroupDesc(listOfGroups.get(i).getGroupDesc());
+        	listOfGroupDto.add(dto);
+		}
+		return listOfGroupDto;
+		//return groupDao.findAllGroupsInfoByUserId(userId);
 	}
 	
 //	@Override

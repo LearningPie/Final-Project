@@ -4,7 +4,9 @@ import DataTable from "react-data-table-component";
 import Swal from "sweetalert2";
 
 export default function UserCard({ user }) {
-  console.log(user);
+  const [dataList, setDataList] = useState(user);
+  const [filteredDataList, setFilteredDataList] = useState(user);
+  const [search, setSearch] = useState("");
   const deleteUser = (arre) => {
     let delArr = [];
     arre.map((item) => delArr.push(item.userId));
@@ -42,15 +44,14 @@ export default function UserCard({ user }) {
       }
     });
   };
-  const [u, setU] = useState("");
-  const [search, setSearch] = useState("");
+
   let arr = [];
   useEffect(() => {
     const result = user.filter((users) => {
-      return users.name.toLowerCase().match(u.toLowerCase());
+      return users.name.toLowerCase().match(search.toLowerCase());
     });
-    setSearch(result);
-  }, [u]);
+    setFilteredDataList(result);
+  }, [search]);
 
   let column = [
     {
@@ -90,7 +91,7 @@ export default function UserCard({ user }) {
       <DataTable
         title="User List"
         columns={column}
-        data={search}
+        data={filteredDataList}
         pagination
         fixedHeader
         selectableRows
@@ -105,8 +106,8 @@ export default function UserCard({ user }) {
             type="text"
             className="form-control w-25"
             placeholder="Search user here..."
-            value={u}
-            onChange={(e) => setU(e.target.value)}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
         }
         subHeaderAlign="right"

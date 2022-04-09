@@ -47,12 +47,12 @@ export default function UserCard(prop) {
   };
 
   let arr = [];
-  useEffect(() => {
-    const result = dataList.filter((user) => {
-      return user.name.toLowerCase().match(search.toLowerCase());
-    });
-    setFilteredDataList(result);
-  }, [search]);
+  // useEffect(() => {
+  //   const result = dataList.filter((user) => {
+  //     return user.name.toLowerCase().match(search.toLowerCase());
+  //   });
+  //   setFilteredDataList(result);
+  // }, [search]);
 
   let column = [
     {
@@ -89,7 +89,7 @@ export default function UserCard(prop) {
   ];
   return (
     <>
-      <div style={{ height: "80vh" }}>
+      <div className="overflow-auto" style={{ height: "120vh" }}>
         <DataTable
           title="User List"
           columns={column}

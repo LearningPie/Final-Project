@@ -17,8 +17,8 @@ public class AnswerServiceImplementation implements AnswerService {
 	AnswersDao answerDao;
 
 	@Override
-	public void postAnswer(Answers answer,int questionId) {
-		 answerDao.postAnswer(answer.getAnswer(),questionId,answer.getUser().getUserId());
+	public void postAnswer(String answer,int questionId,int userId) {
+		 answerDao.postAnswer(answer,questionId,userId);
 	}
 //	
 //	@Override
@@ -44,6 +44,11 @@ public class AnswerServiceImplementation implements AnswerService {
 	
 	public List<Answers> getAll(){
 		return answerDao.findAll();
+	}
+
+	@Override
+	public List<Answers> getAllAnswers(int questionId) {
+		return answerDao.findAllByQuestionId(questionId);
 	}
 
 }

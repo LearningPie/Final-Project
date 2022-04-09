@@ -22,6 +22,7 @@ import com.cdac.LearningPie.Services.UserService;
 import com.cdac.LearningPie.dto.GroupDto;
 import com.cdac.LearningPie.dto.ProfilePicDetails;
 import com.cdac.LearningPie.dto.UserDto;
+import com.cdac.LearningPie.dto.VerifyOtpDto;
 import com.cdac.LearningPie.entity.GroupInfo;
 import com.cdac.LearningPie.entity.User;
 import com.cdac.LearningPie.repository.UserDao;
@@ -48,14 +49,14 @@ public class UserController {
 		String fileName = profilePicDetails.getUserId() + "-" + uploadedPicName;
 //		
 		try {
-			FileCopyUtils.copy(profilePicDetails.getProfilePic().getInputStream(), new FileOutputStream("C:\\Users\\hp\\OneDrive\\Desktop\\Project Main\\PROJECT-IN-ZIP-main (1)\\FRONT-END\\src\\components\\Uploaded\\ProfilePic\\"+fileName));
+			FileCopyUtils.copy(profilePicDetails.getProfilePic().getInputStream(), new FileOutputStream("C:\\Users\\hp\\OneDrive\\Desktop\\Project Main\\PROJECT-IN-ZIP-main (1)\\FRONT-END\\public\\Uploaded\\ProfilePic\\"+fileName));
 		} catch (IOException e) {
 			//hoping there won't be any error
 		}
 		
-//		User u=userService.findByUserId(profilePicDetails.getUserId());
-//		u.setProfilePicName(fileName);
-//		userService.updateUser(u);
+		User u=userService.findByUserId(profilePicDetails.getUserId());
+		u.setProfilePicName(fileName);
+		userService.updateUser(u);
 //		
 //		//update the information in the db
 //		Customer customer = customerService.fetch(profilePicDetails.getCustomerId());
@@ -73,6 +74,16 @@ public class UserController {
 		return userService.isExistingUser(user.getUserName(), user.getPassword());
 	}
 
+	@PostMapping("/verifyEmail")
+	public String verifyEmail(@RequestBody User user) {
+		return userService.findUserByEmail(user.getEmail());
+	}
+	
+	@PutMapping("/updatepassword")
+	public int updatePassword(@RequestBody VerifyOtpDto verifyOtpDto) {
+		return userService.updatePassword(verifyOtpDto.getPassword(),verifyOtpDto.getEmail(), verifyOtpDto.getOtp());
+	}
+	
 	@PostMapping("/findbyusername")
 	public User findByUserName(@RequestBody User user) {
 		return userService.findByUserName(user.getUserName());

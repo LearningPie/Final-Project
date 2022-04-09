@@ -7,6 +7,7 @@ import UserNav from "./UserNav";
 import Sidebar from "../Sidebar";
 import Footer from "../layout/footer";
 import "./UserProfile.css";
+import ProfilePic from "../Images/programmer.png";
 
 function Profile() {
   let userName = sessionStorage.getItem("userSession");
@@ -41,6 +42,7 @@ function Profile() {
   };
 
   const [users, setUsers] = useState([]);
+  let profilePic = "./Uploaded/ProfilePic/" + users.profilePicName;
   console.log(users);
   return (
     <div>
@@ -70,10 +72,7 @@ function Profile() {
                     <div class="row">
                       <div class="col-lg-4 col-md-4 col-12">
                         <div class="profile-image float-md-right">
-                          <img
-                            src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                            alt=""
-                          />{" "}
+                          <img src={ProfilePic} />
                         </div>
                       </div>
                       <div class="col-lg-8 col-md-8 col-12">

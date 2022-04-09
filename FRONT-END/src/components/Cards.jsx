@@ -22,8 +22,8 @@ export default function Cards(content) {
               className="btn btn-warning"
               href={content.href}
               onClick={() => {
-                window.location = `${content.href}`;
                 sessionStorage.setItem("subject", content.subject);
+                window.location = `${content.href}`;
               }}
               // onClick={() => {
               //   sessionStorage.setItem("subject", content.subject);

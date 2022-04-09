@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ViewAnswerInGroup from "./ViewAnswerInGroup";
 
 export default function QuestionComp({ question }) {
   return (
@@ -16,7 +17,18 @@ export default function QuestionComp({ question }) {
       <div className="mb-2"> {question.question}</div>
 
       <div className="d-flex justify-content-end">
-        <button className="btn btn-warning mx-2">View Answers</button>
+        <button
+          className="btn btn-warning mx-2"
+          onClick={() => {
+            sessionStorage.setItem("questionId", question.questionId);
+            sessionStorage.setItem("groupQuestion", question.question);
+            //<ViewAnswerInGroup></ViewAnswerInGroup>;
+            window.location = "/viewAnswer";
+            // console.log(question.answerList);
+          }}
+        >
+          View Answers
+        </button>
         <button
           className="btn btn-warning mx-2"
           onClick={() => {
